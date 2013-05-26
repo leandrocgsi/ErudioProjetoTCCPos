@@ -1,4 +1,4 @@
-package br.com.semeru.validators;
+package br.com.erudio.validators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

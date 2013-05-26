@@ -1,4 +1,4 @@
-package br.com.semeru.validators;
+package br.com.erudio.validators;
 
 
 import javax.faces.application.FacesMessage;
