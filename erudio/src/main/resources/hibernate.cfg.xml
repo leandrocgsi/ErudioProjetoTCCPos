@@ -31,12 +31,24 @@
         <property name="c3p0.idle_test_period">300</property>
         
         <!-- LISTA DE ENTIDADES -->
+        <mapping class="br.com.erudio.model.entities.Aluno"/>        
         <mapping class="br.com.erudio.model.entities.Cidade"/>        
+        <mapping class="br.com.erudio.model.entities.Edicao"/>      
+        <mapping class="br.com.erudio.model.entities.Emprestimo"/>      
         <mapping class="br.com.erudio.model.entities.Endereco"/>      
         <mapping class="br.com.erudio.model.entities.Estado"/>      
+        <mapping class="br.com.erudio.model.entities.Exemplar"/>      
+        <mapping class="br.com.erudio.model.entities.Feriado"/>      
+        <mapping class="br.com.erudio.model.entities.Funcionario"/>      
+        <mapping class="br.com.erudio.model.entities.Multa"/>      
+        <mapping class="br.com.erudio.model.entities.Obra"/>      
         <mapping class="br.com.erudio.model.entities.Pessoa"/>               
+        <mapping class="br.com.erudio.model.entities.Reserva"/>               
         <mapping class="br.com.erudio.model.entities.Sexo"/>
+        <mapping class="br.com.erudio.model.entities.TipoEmprestimo"/>
         <mapping class="br.com.erudio.model.entities.TipoEndereco"/>
         <mapping class="br.com.erudio.model.entities.TipoLogradouro"/>
+        <mapping class="br.com.erudio.model.entities.TipoObra"/>
+        <mapping class="br.com.erudio.model.entities.TipoReserva"/>
     </session-factory>
 </hibernate-configuration>
