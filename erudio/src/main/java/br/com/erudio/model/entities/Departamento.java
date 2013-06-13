@@ -11,32 +11,33 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.ForeignKey;
 
+
 @Entity
-@Table(name="edicao")
-public class Edicao implements Serializable {
+@Table(name="departamento")
+public class Departamento implements Serializable {
     
     private static final long serialVersionUID =  1L;   
     
     @Id
     @GeneratedValue
-    @Column(name="IdEdicao")
-    private Integer idEdicao;
-    @Column(name="Descricao", unique=true, nullable=false, length=9)
+    @Column(name="IdDepartamento")
+    private Integer idDepartamento;
+    @Column(name="Descricao", unique=true, nullable=false, length=10)
     private String descricao;
 
-    @OneToMany(mappedBy = "edicao", fetch = FetchType.LAZY)
-    @ForeignKey(name = "EdicaoObra")        
-    private List<Obra> obras;
-    
-    public Edicao() {
+    @OneToMany(mappedBy = "departamento", fetch = FetchType.LAZY)
+    @ForeignKey(name = "PessoaDepartamento")        
+    private List<Pessoa> pessoas;
+
+    public Departamento() {
     }
 
-    public Integer getIdEdicao() {
-        return idEdicao;
+    public Integer getIdDepartamento() {
+        return idDepartamento;
     }
 
-    public void setIdEdicao(Integer idEdicao) {
-        this.idEdicao = idEdicao;
+    public void setIdDepartamento(Integer idDepartamento) {
+        this.idDepartamento = idDepartamento;
     }
 
     public String getDescricao() {
@@ -47,18 +48,18 @@ public class Edicao implements Serializable {
         this.descricao = descricao;
     }
 
-    public List<Obra> getObras() {
-        return obras;
+    public List<Pessoa> getPessoas() {
+        return pessoas;
     }
 
-    public void setObras(List<Obra> obras) {
-        this.obras = obras;
+    public void setPessoas(List<Pessoa> pessoas) {
+        this.pessoas = pessoas;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 31 * hash + (this.idEdicao != null ? this.idEdicao.hashCode() : 0);
+        hash = 89 * hash + (this.idDepartamento != null ? this.idDepartamento.hashCode() : 0);
         return hash;
     }
 
@@ -70,11 +71,11 @@ public class Edicao implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Edicao other = (Edicao) obj;
-        if (this.idEdicao != other.idEdicao && (this.idEdicao == null || !this.idEdicao.equals(other.idEdicao))) {
+        final Departamento other = (Departamento) obj;
+        if (this.idDepartamento != other.idDepartamento && (this.idDepartamento == null || !this.idDepartamento.equals(other.idDepartamento))) {
             return false;
         }
         return true;
     }
-    
+
 }

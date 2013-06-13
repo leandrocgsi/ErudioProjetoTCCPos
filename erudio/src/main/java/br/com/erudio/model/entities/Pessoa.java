@@ -63,6 +63,16 @@ public class Pessoa implements Serializable {
     @ForeignKey(name = "PessoaSexo") 
     @JoinColumn(name="IdSexo", referencedColumnName = "IdSexo")
     private Sexo sexo;
+    
+    @ManyToOne(optional=true)
+    @ForeignKey(name = "PessoaPendencia") 
+    @JoinColumn(name="IdPendencia", referencedColumnName = "IdPendencia")
+    private Pendencia pendencia;
+    
+    @ManyToOne(optional=true)
+    @ForeignKey(name = "PessoaDepartamento") 
+    @JoinColumn(name="IdDepartamento", referencedColumnName = "IdDepartamento")
+    private Departamento departamento;
 
     public Pessoa() {
         this.sexo = new Sexo();
@@ -170,6 +180,22 @@ public class Pessoa implements Serializable {
 
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
+    }
+
+    public Pendencia getPendencia() {
+        return pendencia;
+    }
+
+    public void setPendencia(Pendencia pendencia) {
+        this.pendencia = pendencia;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
              
 }

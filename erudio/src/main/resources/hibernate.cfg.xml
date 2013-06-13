@@ -33,6 +33,8 @@
         <!-- LISTA DE ENTIDADES -->
         <mapping class="br.com.erudio.model.entities.Aluno"/>        
         <mapping class="br.com.erudio.model.entities.Cidade"/>        
+        <mapping class="br.com.erudio.model.entities.Curso"/>        
+        <mapping class="br.com.erudio.model.entities.Departamento"/>        
         <mapping class="br.com.erudio.model.entities.Edicao"/>      
         <mapping class="br.com.erudio.model.entities.Emprestimo"/>      
         <mapping class="br.com.erudio.model.entities.Endereco"/>      
@@ -40,15 +42,24 @@
         <mapping class="br.com.erudio.model.entities.Exemplar"/>      
         <mapping class="br.com.erudio.model.entities.Feriado"/>      
         <mapping class="br.com.erudio.model.entities.Funcionario"/>      
+        <mapping class="br.com.erudio.model.entities.Matricula"/>      
+        <mapping class="br.com.erudio.model.entities.Modulo"/>      
         <mapping class="br.com.erudio.model.entities.Multa"/>      
         <mapping class="br.com.erudio.model.entities.Obra"/>      
+        <mapping class="br.com.erudio.model.entities.Pendencia"/>               
+        <mapping class="br.com.erudio.model.entities.PeriodoLetivo"/>               
         <mapping class="br.com.erudio.model.entities.Pessoa"/>               
+        <mapping class="br.com.erudio.model.entities.Professor"/>               
         <mapping class="br.com.erudio.model.entities.Reserva"/>               
         <mapping class="br.com.erudio.model.entities.Sexo"/>
+        <mapping class="br.com.erudio.model.entities.TipoAluno"/>
         <mapping class="br.com.erudio.model.entities.TipoEmprestimo"/>
         <mapping class="br.com.erudio.model.entities.TipoEndereco"/>
         <mapping class="br.com.erudio.model.entities.TipoLogradouro"/>
         <mapping class="br.com.erudio.model.entities.TipoObra"/>
+        <mapping class="br.com.erudio.model.entities.TipoPendencia"/>
         <mapping class="br.com.erudio.model.entities.TipoReserva"/>
+        <mapping class="br.com.erudio.model.entities.Titulacao"/>
+        <mapping class="br.com.erudio.model.entities.Turno"/>
     </session-factory>
 </hibernate-configuration>

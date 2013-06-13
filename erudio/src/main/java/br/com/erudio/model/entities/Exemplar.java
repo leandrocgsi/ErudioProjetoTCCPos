@@ -1,6 +1,7 @@
 package br.com.erudio.model.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,7 +30,7 @@ public class Exemplar implements Serializable {
     
     @OneToMany(mappedBy = "exemplar", fetch = FetchType.LAZY)
     @ForeignKey(name = "EmprestimoExemplar")
-    private Emprestimo emprestimo;
+    private List<Emprestimo> emprestimos;
     
     @ManyToOne(optional=true)
     @ForeignKey(name = "EmprestimoReserva")  
@@ -62,12 +63,12 @@ public class Exemplar implements Serializable {
         this.tomo = tomo;
     }
 
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
     }
 
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
+    public void setEmprestimos(List<Emprestimo> emprestimos) {
+        this.emprestimos = emprestimos;
     }
 
     public Obra getObra() {

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.erudio.model.entities;
 
 import java.io.Serializable;
@@ -28,7 +24,7 @@ public class TipoReserva implements Serializable {
     @Column(name="Descricao", unique=true, nullable=false, length=10)
     private String descricao;
 
-    @OneToMany(mappedBy = "tipoReserva", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tiporeserva", fetch = FetchType.LAZY)
     @ForeignKey(name = "ReservaTipoReserva")        
     private List<Reserva> reservas;
 

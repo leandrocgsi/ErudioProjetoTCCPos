@@ -1,6 +1,7 @@
 package br.com.erudio.model.entities;
 
 import javax.persistence.*;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 @DiscriminatorValue(value = "A")
@@ -16,6 +17,21 @@ public class Aluno extends Pessoa {
     @Column(name = "NumeroMatricula")
     private String numeroMatricula;
 
+    @OneToOne(optional=true, fetch= FetchType.LAZY)
+    @ForeignKey(name="MatriculaAluno")
+    @JoinColumn(name = "IdMatricula", referencedColumnName = "IdMatricula")
+    private Matricula matricula;
+
+    @OneToOne(optional=true, fetch= FetchType.LAZY)
+    @ForeignKey(name="AlunoTurno")
+    @JoinColumn(name = "IdTurno", referencedColumnName = "IdTurno")
+    private Turno turno;
+    
+    @ManyToOne(optional=true)
+    @ForeignKey(name="AlunoTipoAluno")
+    @JoinColumn(name="IdTipoAluno", referencedColumnName = "IdTipoAluno")
+    private TipoAluno tipoaluno;
+        
     public Aluno() {
       //  this.setCartao(new Cartao());
     }
@@ -42,6 +58,22 @@ public class Aluno extends Pessoa {
 
     public void setNumeroMatricula(String numeroMatricula) {
         this.numeroMatricula = numeroMatricula;
+    }
+
+    public Matricula getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(Matricula matricula) {
+        this.matricula = matricula;
+    }
+
+    public TipoAluno getTipoaluno() {
+        return tipoaluno;
+    }
+
+    public void setTipoaluno(TipoAluno tipoaluno) {
+        this.tipoaluno = tipoaluno;
     }
 
     @Override

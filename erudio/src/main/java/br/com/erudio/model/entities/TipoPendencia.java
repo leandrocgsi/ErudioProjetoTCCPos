@@ -11,33 +11,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.ForeignKey;
 
-
 @Entity
-@Table(name="tipoEmprestimo")
-public class TipoEmprestimo implements Serializable {
+@Table(name="tipopendencia")
+public class TipoPendencia implements Serializable {
     
     private static final long serialVersionUID =  1L;   
     
     @Id
     @GeneratedValue
-    @Column(name="IdTipoEmprestimo")
-    private Integer idTipoEmprestimo;
+    @Column(name="IdTipoPendencia")
+    private Integer idTipoPendencia;
     @Column(name="Descricao", unique=true, nullable=false, length=10)
     private String descricao;
 
-    @OneToMany(mappedBy = "tipoEmprestimo", fetch = FetchType.LAZY)
-    @ForeignKey(name = "EmprestimoTipoEmprestimo")        
-    private List<Emprestimo> emprestimos;
+    @OneToMany(mappedBy = "tipopendencia", fetch = FetchType.LAZY)
+    @ForeignKey(name = "PendenciaTipoPendencia")        
+    private List<Pendencia> pendencia;
 
-    public TipoEmprestimo() {
+    public TipoPendencia() {
     }
 
-    public Integer getIdTipoEmprestimo() {
-        return idTipoEmprestimo;
+    public Integer getIdTipoPendencia() {
+        return idTipoPendencia;
     }
 
-    public void setIdTipoEmprestimo(Integer idTipoEmprestimo) {
-        this.idTipoEmprestimo = idTipoEmprestimo;
+    public void setIdTipoPendencia(Integer idTipoPendencia) {
+        this.idTipoPendencia = idTipoPendencia;
     }
 
     public String getDescricao() {
@@ -48,18 +47,18 @@ public class TipoEmprestimo implements Serializable {
         this.descricao = descricao;
     }
 
-    public List<Emprestimo> getEmprestimos() {
-        return emprestimos;
+    public List<Pendencia> getPendencia() {
+        return pendencia;
     }
 
-    public void setEmprestimos(List<Emprestimo> emprestimos) {
-        this.emprestimos = emprestimos;
+    public void setPendencia(List<Pendencia> pendencia) {
+        this.pendencia = pendencia;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + (this.idTipoEmprestimo != null ? this.idTipoEmprestimo.hashCode() : 0);
+        hash = 23 * hash + (this.idTipoPendencia != null ? this.idTipoPendencia.hashCode() : 0);
         return hash;
     }
 
@@ -71,8 +70,8 @@ public class TipoEmprestimo implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final TipoEmprestimo other = (TipoEmprestimo) obj;
-        if (this.idTipoEmprestimo != other.idTipoEmprestimo && (this.idTipoEmprestimo == null || !this.idTipoEmprestimo.equals(other.idTipoEmprestimo))) {
+        final TipoPendencia other = (TipoPendencia) obj;
+        if (this.idTipoPendencia != other.idTipoPendencia && (this.idTipoPendencia == null || !this.idTipoPendencia.equals(other.idTipoPendencia))) {
             return false;
         }
         return true;

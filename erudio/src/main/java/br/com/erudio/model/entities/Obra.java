@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.ForeignKey;
@@ -39,14 +41,21 @@ public class Obra implements Serializable {
     private String notacaoDeArea;
     @Column(name="ValorDeReposicao")
     private Double valorDeReposicao;
-    
-    
-    @OneToMany(mappedBy = "tipoReserva", fetch = FetchType.LAZY)
+        
+    @OneToMany(mappedBy = "obra", fetch = FetchType.LAZY)
     @ForeignKey(name="ReservaObra")       
     private List<Reserva> reservas;
-
         
-	//IdEdicao;
+    @ManyToOne(optional=false, fetch = FetchType.LAZY)
+    @ForeignKey(name = "EdicaoObra")
+    @JoinColumn(name = "IdEdicao", referencedColumnName="IdEdicao")         
+    private Edicao edicao;
+
+    @ManyToOne(optional=false, fetch = FetchType.LAZY)
+    @ForeignKey(name="ObraTipoObra")
+    @JoinColumn(name = "IdTipoObra", referencedColumnName="IdTipoObra")         
+    private TipoObra tipoobra;
+
 	//IdTipoObra;
     
     public Obra() {}
@@ -139,6 +148,22 @@ public class Obra implements Serializable {
         this.reservas = reservas;
     }
 
+    public Edicao getEdicao() {
+        return edicao;
+    }
+
+    public void setEdicao(Edicao edicao) {
+        this.edicao = edicao;
+    }
+
+    public TipoObra getTipoobra() {
+        return tipoobra;
+    }
+
+    public void setTipoobra(TipoObra tipoobra) {
+        this.tipoobra = tipoobra;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;
