@@ -46,6 +46,10 @@ public class Obra implements Serializable {
     @ForeignKey(name="ReservaObra")       
     private List<Reserva> reservas;
         
+    @OneToMany(mappedBy = "obra", fetch = FetchType.LAZY)
+    @ForeignKey(name = "ExemplarObra")      
+    private List<Exemplar> exemplars;
+        
     @ManyToOne(optional=false, fetch = FetchType.LAZY)
     @ForeignKey(name = "EdicaoObra")
     @JoinColumn(name = "IdEdicao", referencedColumnName="IdEdicao")         
@@ -162,6 +166,14 @@ public class Obra implements Serializable {
 
     public void setTipoobra(TipoObra tipoobra) {
         this.tipoobra = tipoobra;
+    }
+
+    public List<Exemplar> getExemplars() {
+        return exemplars;
+    }
+
+    public void setExemplars(List<Exemplar> exemplars) {
+        this.exemplars = exemplars;
     }
     
     @Override

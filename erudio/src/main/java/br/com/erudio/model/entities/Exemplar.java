@@ -33,7 +33,7 @@ public class Exemplar implements Serializable {
     private List<Emprestimo> emprestimos;
     
     @ManyToOne(optional=true)
-    @ForeignKey(name = "EmprestimoReserva")  
+    @ForeignKey(name = "ExemplarObra")  
     @JoinColumn(name="IdObra", referencedColumnName = "IdObra")
     private Obra obra;
     

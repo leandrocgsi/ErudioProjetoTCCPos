@@ -2,6 +2,7 @@ package br.com.erudio.model.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -13,6 +14,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -73,6 +75,23 @@ public class Pessoa implements Serializable {
     @ForeignKey(name = "PessoaDepartamento") 
     @JoinColumn(name="IdDepartamento", referencedColumnName = "IdDepartamento")
     private Departamento departamento;
+    
+    @OneToMany(mappedBy = "operador", fetch = FetchType.LAZY)
+    @ForeignKey(name = "EmprestimoOperador")
+    private List<Emprestimo> emprestimosoperador;
+    
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)    
+    @ForeignKey(name = "EmprestimoUsuario")
+    private List<Emprestimo> emprestimosusuario;
+    
+    @OneToMany(mappedBy = "operador", fetch = FetchType.LAZY)
+    @ForeignKey(name = "ReservaOperador")
+    private List<Reserva> reservasoperador;
+    
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)    
+    @ForeignKey(name = "ReservaUsuario")
+    private List<Reserva> reservasusuario;
+    
 
     public Pessoa() {
         this.sexo = new Sexo();
@@ -197,5 +216,36 @@ public class Pessoa implements Serializable {
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
-             
+
+    public List<Emprestimo> getEmprestimosoperador() {
+        return emprestimosoperador;
+    }
+
+    public void setEmprestimosoperador(List<Emprestimo> emprestimosoperador) {
+        this.emprestimosoperador = emprestimosoperador;
+    }
+
+    public List<Emprestimo> getEmprestimosusuario() {
+        return emprestimosusuario;
+    }
+
+    public void setEmprestimosusuario(List<Emprestimo> emprestimosusuario) {
+        this.emprestimosusuario = emprestimosusuario;
+    }
+
+    public List<Reserva> getReservasoperador() {
+        return reservasoperador;
+    }
+
+    public void setReservasoperador(List<Reserva> reservasoperador) {
+        this.reservasoperador = reservasoperador;
+    }
+
+    public List<Reserva> getReservasusuario() {
+        return reservasusuario;
+    }
+
+    public void setReservasusuario(List<Reserva> reservasusuario) {
+        this.reservasusuario = reservasusuario;            
+    }
 }

@@ -34,9 +34,12 @@ public class Curso implements Serializable{
     @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
     @ForeignKey(name = "CursoModulo") 
     private List<Modulo> modulos;
+    
+    @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
+    @ForeignKey(name = "ProfessorVinculoCurso")
+    private List<ProfessorVinculo> professorvinculos;
         
-    public Curso() {
-    }
+    public Curso() {}
 
     public Integer getIdCurso() {
         return idCurso;
@@ -69,6 +72,14 @@ public class Curso implements Serializable{
     public void setModulos(List<Modulo> modulos) {
         this.modulos = modulos;
     }       
+
+    public List<ProfessorVinculo> getProfessorvinculos() {
+        return professorvinculos;
+    }
+
+    public void setProfessorvinculos(List<ProfessorVinculo> professorvinculos) {
+        this.professorvinculos = professorvinculos;
+    }
 
     @Override
     public int hashCode() {

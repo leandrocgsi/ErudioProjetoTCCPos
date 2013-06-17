@@ -53,8 +53,21 @@ public class Emprestimo implements Serializable {
     @ForeignKey(name = "EmprestimoReserva")
     @JoinColumn(name = "IdReserva", referencedColumnName = "IdReserva")
     private Reserva reserva;
+    
+    @ManyToOne(optional=true)
+    @ForeignKey(name="operador")
+    @JoinColumn(name="IdPessoaOperador", referencedColumnName="IdPessoa")
+    private Pessoa operador;
 
-    public Emprestimo() {}
+    @ManyToOne(optional=true)
+    @ForeignKey(name="usuario")
+    @JoinColumn(name="IdPessoaUsuario", referencedColumnName="IdPessoa")
+    private Pessoa usuario;
+
+    public Emprestimo() {
+        this.operador = new Pessoa();
+        this.usuario = new Pessoa();
+    }
 
     public Integer getIdEmprestimo() {
         return idEmprestimo;
@@ -118,6 +131,22 @@ public class Emprestimo implements Serializable {
 
     public void setReserva(Reserva reserva) {
         this.reserva = reserva;
+    }
+
+    public Pessoa getOperador() {
+        return operador;
+    }
+
+    public void setOperador(Pessoa operador) {
+        this.operador = operador;
+    }
+
+    public Pessoa getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Pessoa usuario) {
+        this.usuario = usuario;
     }
 
     @Override

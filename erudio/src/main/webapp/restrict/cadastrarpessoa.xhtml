@@ -23,7 +23,7 @@
                                 <h:inputHidden id="idpessoa" value="#{mbPessoa.pessoa.idPessoa}"/> 
 
                                 <h:outputLabel for="nomePessoa" value="Nome.:"/>
-                                <p:inputText id="nomePessoa" size="40" value="#{mbPessoa.pessoa.nome}"
+                                <p:inputText id="nomePessoa" size="40" value="#{mbPessoa.pessoa.nomeRazaoSocial}"
                                              required="true" requiredMessage="O campo [Nome] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase()"/>
 
@@ -45,13 +45,13 @@
                                 </p:inputText>
 
                                 <h:outputLabel for="cpf" value="CPF.:"/>
-                                <p:inputText id="cpf" size="40" value="#{mbPessoa.pessoa.cpf}"
+                                <p:inputText id="cpf" size="40" value="#{mbPessoa.pessoa.cpfcnpj}"
                                              required="true" requiredMessage="O campo [CPF] é obrigatório">
                                     <f:validator validatorId="cpfValidator"/>
                                 </p:inputText>
 
                                 <h:outputLabel for="dataNascimento" value="Data de Nascimento.:"/>
-                                <p:calendar id="dataNascimento" value="#{mbPessoa.pessoa.dataDeNascimento}"
+                                <p:calendar id="dataNascimento" value="#{mbPessoa.pessoa.dataDeNascimentoFundacao}"
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
                                             locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
 

@@ -1,5 +1,6 @@
 package br.com.erudio.model.entities;
 
+import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.ForeignKey;
 
@@ -9,14 +10,16 @@ public class Professor extends Pessoa {
 
     private static final long serialVersionUID = 1L;
     
-    @ManyToOne(optional=false)
+    @ManyToOne(optional=true)
     @ForeignKey(name = "ProfessorTitulacao") 
     @JoinColumn(name="IdTitulacao", referencedColumnName = "IdTitulacao")
     private Titulacao titulacao;
+            
+    @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
+    @ForeignKey(name = "ProfessorVinculoProfessor") 
+    private List<ProfessorVinculo> professorvinculos;
 
-    public Professor() {
-      //  this.setCartao(new Cartao());
-    }
+    public Professor() {}
 
     public Titulacao getTitulacao() {
         return titulacao;
@@ -24,6 +27,14 @@ public class Professor extends Pessoa {
 
     public void setTitulacao(Titulacao titulacao) {
         this.titulacao = titulacao;
+    }
+
+    public List<ProfessorVinculo> getProfessorvinculos() {
+        return professorvinculos;
+    }
+
+    public void setProfessorvinculos(List<ProfessorVinculo> professorvinculos) {
+        this.professorvinculos = professorvinculos;
     }
 
     @Override
@@ -46,6 +57,5 @@ public class Professor extends Pessoa {
             return false;
         }
         return true;
-    }
-        
+    }        
 }

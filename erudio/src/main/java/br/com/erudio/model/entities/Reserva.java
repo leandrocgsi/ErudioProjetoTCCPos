@@ -42,7 +42,19 @@ public class Reserva implements Serializable {
     @JoinColumn(name = "IdObra", referencedColumnName="IdObra")
     private Obra obra;
 
+    @ManyToOne(optional=true)
+    @ForeignKey(name="operador")
+    @JoinColumn(name="IdPessoaOperador", referencedColumnName="IdPessoa")
+    private Pessoa operador;
+
+    @ManyToOne(optional=true)
+    @ForeignKey(name="usuario")
+    @JoinColumn(name="IdPessoaUsuario", referencedColumnName="IdPessoa")
+    private Pessoa usuario;
+    
     public Reserva() {
+        this.operador = new Pessoa();
+        this.usuario = new Pessoa();
     }
 
     public Integer getIdReserva() {
@@ -91,6 +103,22 @@ public class Reserva implements Serializable {
 
     public void setObra(Obra obra) {
         this.obra = obra;
+    }
+
+    public Pessoa getOperador() {
+        return operador;
+    }
+
+    public void setOperador(Pessoa operador) {
+        this.operador = operador;
+    }
+
+    public Pessoa getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Pessoa usuario) {
+        this.usuario = usuario;
     }
 
     @Override

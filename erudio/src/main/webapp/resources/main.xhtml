@@ -24,7 +24,7 @@
             <div id="logoff">
                 <h:form>
                     <br/>
-                    <h5><h:outputText value="SEJA BEM VINDO(A) # {bbUsuarioLogado.procuraPessoa().getNome()}!"/></h5>
+                    <h5><h:outputText value="SEJA BEM VINDO(A) #{bbUsuarioLogado.procuraPessoa().getNomeRazaoSocial()}!"/></h5>
                     <br/>
                     <a href="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
 	                <h4>LOGOFF</h4>
@@ -40,7 +40,9 @@
 
                     <p:submenu label="Cadastros">  
                         <p:menuitem value="Cidades" url="/restrict/cidade.faces"/>                        
-                        <p:menuitem value="Pessoas" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
+                        <p:menuitem value="Alunos" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
+                        <p:menuitem value="Funcionários" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
+                        <p:menuitem value="Professores" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
                     </p:submenu> 
                     <p:submenu label="Consultas">  
                         <p:menuitem value="Pessoas" url="/restrict/consultarpessoas.faces"/>  
@@ -56,10 +58,10 @@
         </div>
 
         <div id="rodape">
-            <a href="http://www.Erudio.com.br/"><img src="#{facesContext.externalContext.requestContextPath}/resources/restrict/images/logo_mini.png" /></a>
+            <a href="http://www.erudio.com.br/"><img src="#{facesContext.externalContext.requestContextPath}/resources/restrict/images/logo_mini.png" /></a>
 
             <div id="copyright">                  
-                <a href="http://www.Erudio.com.br/">Erudio - Sistema de Gestão de Bibliotecas - &copy; Copyright erudio.com.br 2012</a>
+                <a href="http://www.erudio.com.br/">Erudio - Sistema de Gestão de Bibliotecas - &copy; Copyright erudio.com.br 2012</a>
             </div>
         </div> <!--Fim da div rodape -->
 
