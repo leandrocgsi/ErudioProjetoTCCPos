@@ -40,12 +40,12 @@
 
                     <p:submenu label="Cadastros">  
                         <p:menuitem value="Cidades" url="/restrict/cidade.faces"/>                        
-                        <p:menuitem value="Alunos" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
-                        <p:menuitem value="Funcionários" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
-                        <p:menuitem value="Professores" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
+                        <p:menuitem value="Alunos" action="#{mbAluno.limpAluno}" ajax="false"/>                        
+                        <p:menuitem value="Funcionários" action="#{mbAluno.limpAluno}" ajax="false"/>                        
+                        <p:menuitem value="Professores" action="#{mbAluno.limpAluno}" ajax="false"/>                        
                     </p:submenu> 
                     <p:submenu label="Consultas">  
-                        <p:menuitem value="Pessoas" url="/restrict/consultarpessoas.faces"/>  
+                        <p:menuitem value="Alunos" url="/restrict/consultaralunos.faces"/>  
                     </p:submenu>                                      
                 </p:menubar> 
             </h:form>           

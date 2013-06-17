@@ -9,61 +9,61 @@
                 template="./../resources/main.xhtml">
 
     <ui:define name="tarefas">
-        <p:fieldset legend="Cadastrar Pessoas">
+        <p:fieldset legend="Cadastrar Alunos">
 
             <br/>
             <h:form>
                 <p:wizard nextLabel="Próxima Aba" backLabel="Aba Anterior">
                     <p:tab title="Informações Básicas" id="infoPessoal">
-                        <p:panel header="Informações Básicas da Pessoa">
+                        <p:panel header="Informações Básicas do Aluno">
                             <p:growl id="msg0"/>
                             <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
 
                                 <h:outputLabel/>
-                                <h:inputHidden id="idpessoa" value="#{mbPessoa.pessoa.idPessoa}"/> 
+                                <h:inputHidden id="idpessoa" value="#{mbAluno.aluno.idPessoa}"/> 
 
-                                <h:outputLabel for="nomePessoa" value="Nome.:"/>
-                                <p:inputText id="nomePessoa" size="40" value="#{mbPessoa.pessoa.nomeRazaoSocial}"
+                                <h:outputLabel for="nomeAluno" value="Nome.:"/>
+                                <p:inputText id="nomeAluno" size="40" value="#{mbAluno.aluno.nomeRazaoSocial}"
                                              required="true" requiredMessage="O campo [Nome] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase()"/>
 
                                 <h:outputLabel for="sexo" value="Sexo.:"/>
-                                <p:selectOneMenu id="sexo" value="#{mbPessoa.pessoa.sexo.idSexo}">
+                                <p:selectOneMenu id="sexo" value="#{mbAluno.aluno.sexo.idSexo}">
                                     <f:selectItems value="#{bbSexo.sexos}" var="sexo" itemValue="#{sexo.idSexo}" itemLabel="#{sexo.descricao}"/>
                                 </p:selectOneMenu>
 
                                 <h:outputLabel for="telefone" value="Telefone.:"/>
                                 <p:inputMask id="telefone" size="40" mask="(99) 9999-9999"
-                                             value="#{mbPessoa.pessoa.telefone}"
+                                             value="#{mbAluno.aluno.telefone}"
                                              required="true" requiredMessage="O campo [Telefone] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase()"/>
 
                                 <h:outputLabel for="email" value="E-mail.:"/>
-                                <p:inputText id="email" size="40" value="#{mbPessoa.pessoa.email}"
+                                <p:inputText id="email" size="40" value="#{mbAluno.aluno.email}"
                                              required="true" requiredMessage="O campo [E-mail] é obrigatório">
                                     <f:validator validatorId="emailValidator"/>
                                 </p:inputText>
 
                                 <h:outputLabel for="cpf" value="CPF.:"/>
-                                <p:inputText id="cpf" size="40" value="#{mbPessoa.pessoa.cpfcnpj}"
+                                <p:inputText id="cpf" size="40" value="#{mbAluno.aluno.cpfcnpj}"
                                              required="true" requiredMessage="O campo [CPF] é obrigatório">
                                     <f:validator validatorId="cpfValidator"/>
                                 </p:inputText>
 
                                 <h:outputLabel for="dataNascimento" value="Data de Nascimento.:"/>
-                                <p:calendar id="dataNascimento" value="#{mbPessoa.pessoa.dataDeNascimentoFundacao}"
+                                <p:calendar id="dataNascimento" value="#{mbAluno.aluno.dataDeNascimentoFundacao}"
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
                                             locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
 
                                 <h:outputLabel for="usuario" value="Nome de Usuário.:"/>
-                                <p:inputText id="usuario" value="#{mbPessoa.pessoa.login}" size="30"/>
+                                <p:inputText id="usuario" value="#{mbAluno.aluno.login}" size="30"/>
 
                                 <h:outputLabel for="senha" value="Senha.:" />
-                                <p:password id="senha" size="30" maxlength="22" promptLabel="Digite sua Senha" value="#{mbPessoa.confereSenha}"
+                                <p:password id="senha" size="30" maxlength="22" promptLabel="Digite sua Senha" value="#{mbAluno.confereSenha}"
                                             weakLabel="Senha Fraca" goodLabel="Senha Boa" strongLabel="Senha Forte" feedback="true"/> 
 
                                 <h:outputLabel for="senhaconf2" value="Confirmar Senha.:"/>
-                                <p:password id="senhaconf2" size="30" value="#{mbPessoa.pessoa.senha}" maxlength="22"   
+                                <p:password id="senhaconf2" size="30" value="#{mbAluno.aluno.senha}" maxlength="22"   
                                             promptLabel="Confirme sua Senha" weakLabel="Senha Fraca" validator="passwordValidator"
                                             goodLabel="Senha Boa" strongLabel="Senha Forte" feedback="true">
                                 </p:password>  
@@ -78,54 +78,54 @@
                             <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid1">
 
                                 <h:outputLabel for="uf" value="Estado.:" />
-                                <p:selectOneMenu id="uf" value="#{mbPessoa.endereco.estado.idEstado}">
+                                <p:selectOneMenu id="uf" value="#{mbAluno.endereco.estado.idEstado}">
                                     <f:selectItems value="#{bbEstado.estados}" var="estado"
                                                    itemValue="#{estado.idEstado}" itemLabel="#{estado.nomeEstado}"/>
                                 </p:selectOneMenu>
 
 
                                 <h:outputLabel for="cidade" value="Cidade.:" />
-                                <p:selectOneMenu id="cidade" value="#{mbPessoa.endereco.cidade.idCidade}">
+                                <p:selectOneMenu id="cidade" value="#{mbAluno.endereco.cidade.idCidade}">
                                     <f:selectItems value="#{bbCidade.cidades}" var="cidade"
                                                    itemValue="#{cidade.idCidade}" itemLabel="#{cidade.nome}"/>
                                 </p:selectOneMenu>
 
 
                                 <h:outputLabel for="bairro" value="Bairro.:"/>
-                                <p:inputText id="bairro" size="60" value="#{mbPessoa.endereco.bairro}" required="true" 
+                                <p:inputText id="bairro" size="60" value="#{mbAluno.endereco.bairro}" required="true" 
                                              requiredMessage="É obrigatório o preenchimento do campo [Bairro]"
                                              onkeyup="this.value = this.value.toUpperCase()"/>
 
                                 <h:outputLabel for="idTipoEndereco" value="Tipo de Endereço.:"/>
-                                <p:selectOneMenu id="idTipoEndereco" value="#{mbPessoa.endereco.tipoendereco.idTipoEndereco}">
+                                <p:selectOneMenu id="idTipoEndereco" value="#{mbAluno.endereco.tipoendereco.idTipoEndereco}">
                                     <f:selectItems value="#{bbTipoEndereco.tipoEnderecos}" var="tipoEndereco"
                                                    itemValue="#{tipoEndereco.idTipoEndereco}" itemLabel="#{tipoEndereco.descricaoTipoEndereco}"/>
                                 </p:selectOneMenu>
 
                                 <h:outputLabel for="idTipoLogradouro" value="Tipo de Logradouro.:"/>
-                                <p:selectOneMenu id="idTipoLogradouro" value="#{mbPessoa.endereco.tipologradouro.idTipoLogradouro}">
+                                <p:selectOneMenu id="idTipoLogradouro" value="#{mbAluno.endereco.tipologradouro.idTipoLogradouro}">
                                     <f:selectItems value="#{bbTipoLogradouro.tipoLogradouros}" var="tipoLogradouro"
                                                    itemValue="#{tipoLogradouro.idTipoLogradouro}" itemLabel="#{tipoLogradouro.descricaoTipoLogradouro}"/>
                                 </p:selectOneMenu>
 
                                 <h:outputLabel for="nomelogradouro" value="Logradouro.:"/>
-                                <p:inputText id="nomelogradouro" size="75" value="#{mbPessoa.endereco.nomeLogradouro}" 
+                                <p:inputText id="nomelogradouro" size="75" value="#{mbAluno.endereco.nomeLogradouro}" 
                                              required="true" requiredMessage="É obrigatório o preenchimento do campo [Logradouro]"
                                              onkeyup="this.value = this.value.toUpperCase()"/>
 
                                 <h:outputLabel for="cep" value="CEP.:"/>
-                                <p:inputMask id="cep" size="10" value="#{mbPessoa.endereco.cep}" mask="99999-999" required="true" requiredMessage="É obrigatório o preenchimento do campo [CEP]"/> 			
+                                <p:inputMask id="cep" size="10" value="#{mbAluno.endereco.cep}" mask="99999-999" required="true" requiredMessage="É obrigatório o preenchimento do campo [CEP]"/> 			
 
                                 <h:outputLabel for="numero" value="Numero.:"/>
-                                <p:inputText id="numero" size="8" value="#{mbPessoa.endereco.numero}" required="true" requiredMessage="É obrigatório o preenchimento do campo [Número]"/>	
+                                <p:inputText id="numero" size="8" value="#{mbAluno.endereco.numero}" required="true" requiredMessage="É obrigatório o preenchimento do campo [Número]"/>	
 
                                 <h:outputLabel for="complemento" value="Complemento.:"/>
-                                <p:inputText id="complemento" size="20" value="#{mbPessoa.endereco.complemento}" onkeyup="this.value = this.value.toUpperCase()"/>
+                                <p:inputText id="complemento" size="20" value="#{mbAluno.endereco.complemento}" onkeyup="this.value = this.value.toUpperCase()"/>
 
                                 <p:panel>
-                                    <p:commandButton value="Salvar" action="#{mbPessoa.addPessoa}"
+                                    <p:commandButton value="Salvar" action="#{mbAluno.addAluno}"
                                                      image="ui-icon ui-icon-disk" update="@form"/>
-                                    <p:commandButton value="Cancelar" actionListener="#{mbPessoa.limpPessoa}" 
+                                    <p:commandButton value="Cancelar" actionListener="#{mbAluno.limpAluno}" 
                                                      image="ui-icon ui-icon-close" update="@form"/>
                                 </p:panel>
                             </h:panelGrid>
