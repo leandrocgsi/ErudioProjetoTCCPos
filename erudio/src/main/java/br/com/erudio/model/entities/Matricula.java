@@ -32,8 +32,9 @@ public class Matricula implements Serializable {
     @OneToOne(mappedBy = "matricula", fetch = FetchType.LAZY)
     @ForeignKey(name="MatriculaCurso")
     private Curso curso;
-        
-    @OneToOne(mappedBy = "matricula", fetch = FetchType.LAZY)
+
+    @OneToOne(optional=true, fetch= FetchType.LAZY)
+    @JoinColumn(name = "IdPessoa", referencedColumnName = "IdPessoa")
     @ForeignKey(name="MatriculaAluno")
     private Aluno aluno;
             

@@ -17,9 +17,8 @@ public class Aluno extends Pessoa {
     @Column(name = "NumeroMatricula")
     private String numeroMatricula;
 
-    @OneToOne(optional=true, fetch= FetchType.LAZY)
+    @OneToOne(mappedBy = "aluno", fetch = FetchType.LAZY)
     @ForeignKey(name="MatriculaAluno")
-    @JoinColumn(name = "IdMatricula", referencedColumnName = "IdMatricula")
     private Matricula matricula;
 
     @OneToOne(optional=true, fetch= FetchType.LAZY)
@@ -74,6 +73,14 @@ public class Aluno extends Pessoa {
 
     public void setTipoaluno(TipoAluno tipoaluno) {
         this.tipoaluno = tipoaluno;
+    }
+
+    public Turno getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Turno turno) {
+        this.turno = turno;
     }
 
     @Override
