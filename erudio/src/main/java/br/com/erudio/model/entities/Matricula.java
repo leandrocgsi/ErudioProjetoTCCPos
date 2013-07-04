@@ -29,8 +29,9 @@ public class Matricula implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataMatricula;        
             
-    @OneToOne(mappedBy = "matricula", fetch = FetchType.LAZY)
+    @OneToOne(optional=true, fetch= FetchType.LAZY)
     @ForeignKey(name="MatriculaCurso")
+    @JoinColumn(name = "IdCurso", referencedColumnName = "IdCurso")
     private Curso curso;
 
     @OneToOne(optional=true, fetch= FetchType.LAZY)

@@ -39,7 +39,7 @@
                 <p:menubar styleClass="labelmenu">
 
                     <p:submenu label="Cadastros">  
-                        <p:menuitem value="Cidades" url="/restrict/cidade.faces"/>                        
+                        <p:menuitem value="Cidades" url="/restrict/cadastrarcidade.faces"/>                        
                         <p:menuitem value="Alunos" action="#{mbAluno.limpAluno}" ajax="false"/>                        
                         <p:menuitem value="Funcionários" action="#{mbFuncionario.limpFuncionario}" ajax="false"/>                        
                         <p:menuitem value="Professores" action="#{mbAluno.limpAluno}" ajax="false"/>                        
@@ -47,7 +47,15 @@
                     <p:submenu label="Consultas">  
                         <p:menuitem value="Alunos" url="/restrict/consultaralunos.faces"/>  
                         <p:menuitem value="Funcionarios" url="/restrict/consultarfuncionarios.faces"/>  
-                    </p:submenu>                                      
+                    </p:submenu>   
+                    <p:submenu label="Acadêmico">
+                        <p:menuitem value="Cadastrar Cursos" url="/restrict/cadastrarcurso.faces"/>                        
+                    </p:submenu>
+                    <p:submenu label="Biblioteca">
+                        <p:menuitem value="Emprestimo" url="#"/>
+                        <p:menuitem value="Devolução" url="#"/>
+                        <p:menuitem value="Reserva" url="#"/>                        
+                    </p:submenu>
                 </p:menubar> 
             </h:form>           
         </div>

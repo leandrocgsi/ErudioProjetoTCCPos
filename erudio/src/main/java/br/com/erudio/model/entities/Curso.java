@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,9 +25,8 @@ public class Curso implements Serializable{
     @Column(name="Nome", length=80, nullable=false)
     private String nome;
 
-    @OneToOne(optional=true, fetch= FetchType.LAZY)
-    @ForeignKey(name="MatriculaCurso")
-    @JoinColumn(name = "IdMatricula", referencedColumnName = "IdMatricula")
+    @OneToOne(mappedBy = "curso", fetch = FetchType.LAZY)
+    @ForeignKey(name="MatriculaCurso")    
     private Matricula matricula;
     
     @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)

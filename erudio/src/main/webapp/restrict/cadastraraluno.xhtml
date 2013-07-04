@@ -27,6 +27,16 @@
                                              required="true" requiredMessage="O campo [Nome] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase();"/>
                                 
+                                <h:outputLabel for="mae" value="Pai.:"/>
+                                <p:inputText id="mae" size="40" value="#{mbAluno.aluno.pai}"
+                                             required="true" requiredMessage="O campo [Pai] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+                                
+                                <h:outputLabel for="pai" value="Mãe.:"/>
+                                <p:inputText id="pai" size="40" value="#{mbAluno.aluno.mae}"
+                                             required="true" requiredMessage="O campo [Mãe] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+                                
                                 <h:outputLabel for="responsavel" value="Responsável.:"/>
                                 <p:inputText id="responsavel" size="40" value="#{mbAluno.aluno.responsavel}"
                                              required="true" requiredMessage="O campo [Responsável] é obrigatório"
@@ -50,10 +60,10 @@
                                 </p:inputText>
 
                                 <h:outputLabel for="cpf" value="CPF.:"/>
-                                <p:inputText id="cpf" size="40" value="#{mbAluno.aluno.cpfcnpj}"
+                                <p:inputMask id="cpf" size="40" mask="999.999.999-99" value="#{mbAluno.aluno.cpfcnpj}"
                                              required="true" requiredMessage="O campo [CPF] é obrigatório">
                                     <f:validator validatorId="cpfValidator"/>
-                                </p:inputText>
+                                </p:inputMask>
 
                                 <h:outputLabel for="dataNascimento" value="Data de Nascimento.:"/>
                                 <p:calendar id="dataNascimento" value="#{mbAluno.aluno.dataDeNascimentoFundacao}"

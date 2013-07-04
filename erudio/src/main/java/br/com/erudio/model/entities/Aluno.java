@@ -32,7 +32,8 @@ public class Aluno extends Pessoa {
     private TipoAluno tipoaluno;
         
     public Aluno() {
-      //  this.setCartao(new Cartao());
+        this.tipoaluno = new TipoAluno();
+        this.turno = new Turno();
     }
 
     public byte[] getFoto() {

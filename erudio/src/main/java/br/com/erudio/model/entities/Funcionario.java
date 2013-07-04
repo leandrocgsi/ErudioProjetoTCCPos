@@ -18,10 +18,6 @@ public class Funcionario extends Pessoa {
     private String serieCTPS;
     @Column(name = "PIS", length = 2)
     private String pis;
-    @Column(name = "Pai", length = 130)
-    private String pai;
-    @Column(name = "Mae", length = 130)
-    private String mae;
     @Column(name = "Naturalidade", length = 130)
     private String naturalidade;
     @Temporal(TemporalType.DATE)
@@ -106,22 +102,6 @@ public class Funcionario extends Pessoa {
 
     public void setHorarioFim(Date horarioFim) {
         this.horarioFim = horarioFim;
-    }
-
-    public String getPai() {
-        return pai;
-    }
-
-    public void setPai(String pai) {
-        this.pai = pai;
-    }
-
-    public String getMae() {
-        return mae;
-    }
-
-    public void setMae(String mae) {
-        this.mae = mae;
     }
 
     public String getNaturalidade() {

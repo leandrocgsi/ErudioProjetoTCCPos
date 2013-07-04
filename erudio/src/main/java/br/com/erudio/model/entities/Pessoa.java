@@ -35,6 +35,10 @@ public class Pessoa implements Serializable {
     private Integer idPessoa;
     @Column (name="NomeRazaoSocial", nullable = false, length = 80 )
     private String nomeRazaoSocial;
+    @Column (name="Pai")
+    private String pai;
+    @Column (name="Mae")
+    private String mae;
     @Column (name="Email", nullable = false, length = 80 )
     private String email;
     @Column (name="Telefone", nullable = false, length = 15 )
@@ -97,6 +101,22 @@ public class Pessoa implements Serializable {
         this.sexo = new Sexo();
     }
 
+    public String getPai() {
+        return pai;
+    }
+
+    public void setPai(String pai) {
+        this.pai = pai;
+    }
+
+    public String getMae() {
+        return mae;
+    }
+
+    public void setMae(String mae) {
+        this.mae = mae;
+    }
+    
     public Integer getIdPessoa() {
         return idPessoa;
     }
