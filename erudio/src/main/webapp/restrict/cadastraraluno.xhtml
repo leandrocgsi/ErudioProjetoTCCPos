@@ -136,6 +136,27 @@
 
                                 <h:outputLabel for="complemento" value="Complemento.:"/>
                                 <p:inputText id="complemento" size="20" value="#{mbAluno.endereco.complemento}" onkeyup="this.value = this.value.toUpperCase();"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
+                    
+                    <p:tab title="Informações da Matrícula" id="infoEndereco">
+                        <p:panel header="Informações da Matrícula">
+                            <p:growl id="msg2"/>
+                            <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid2">
+
+                                <h:outputLabel for="uf" value="Estado.:" />
+                                <p:selectOneMenu id="uf" value="#{mbAluno.endereco.estado.idEstado}">
+                                    <f:selectItems value="#{bbEstado.estados}" var="estado"
+                                                   itemValue="#{estado.idEstado}" itemLabel="#{estado.nomeEstado}"/>
+                                </p:selectOneMenu>
+
+
+                                <h:outputLabel for="cidade" value="Cidade.:" />
+                                <p:selectOneMenu id="cidade" value="#{mbAluno.endereco.cidade.idCidade}">
+                                    <f:selectItems value="#{bbCidade.cidades}" var="cidade"
+                                                   itemValue="#{cidade.idCidade}" itemLabel="#{cidade.nome}"/>
+                                </p:selectOneMenu>
 
                                 <h:outputLabel/>
                                 <p:panel>
