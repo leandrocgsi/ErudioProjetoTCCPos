@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../resources/main.xhtml">
+
+    <ui:define name="tarefas">
+        <p:fieldset legend="Empréstimos">
+            <p:tabView > 
+                <p:tab title="Empréstimos"> 
+                    <h:form prependId="false">
+
+                        <p:growl id="msg" life="60000"/>
+                                         
+                        <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid">
+                                                                               
+                            <h:outputLabel for="idTipoEmprestimo" value="Tipo de Empréstimo .:"/>
+                            <h:selectOneMenu id="idTipoEmprestimo" value="#{mbEmprestimo.emprestimo.tipoEmprestimo.idTipoEmprestimo}">
+                                <f:selectItems value="#{bbTipoEmprestimo.tipoEmprestimos}" var="tp" itemValue="#{tp.idTipoEmprestimo}" itemLabel="#{tp.descricao}" />
+                            </h:selectOneMenu>
+
+                            <h:outputLabel for="idPessoaAluno" value="Código do Usuário .:" />
+                            <p:inputText id="idPessoaAluno" value="#{mbEmprestimo.emprestimo.usuario.idPessoa}" size="40" required="true" requiredMessage="É obrigatório a seleção do [Codigo do Usuário] !" />
+                            
+
+                            <h:outputLabel for="idExemplar" value="Código do Ítem .:"/>
+                            <p:inputText id="idExemplar" value="#{mbEmprestimo.emprestimo.exemplar.idExemplar}" size="40" required="true" requiredMessage="É obrigatório a seleção do [Codigo da Obra] !"/>
+
+                            <p:panel>
+                                <p:commandButton value="Confirmar" action="#{mbEmprestimo.fazEmprestimo}"  image="ui-icon ui-icon-disk" update="grid, msg,idTabela" ajax="false"/>
+                                <p:commandButton value="Cancelar" action="#{mbEmprestimo.limpEmprestimo}" image="ui-icon ui-icon-close" update="grid" ajax="false"/>
+                            </p:panel>
+                        </h:panelGrid> 
+                        
+                        <h:panelGrid>
+                            <p:dataTable var="emprestimo" value="#{mbEmprestimo.emprestimos}" 
+                                     id="idTabela"
+                                     lazy="false"
+                                     paginator="true" rows="10"  
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                     rowsPerPageTemplate="5,8,12">  
+                                <f:facet name="header">  
+                                    Lista de Empréstimos 
+                                </f:facet>  
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText  value="Id." />  
+                                    </f:facet>  
+                                    <h:outputText value="#{emprestimo.idEmprestimo}" />  
+                                </p:column> 
+
+                                <p:column> 
+
+                                    <f:facet name="header">  
+                                        <h:outputText  value="Usuário"/>  
+                                    </f:facet>  
+                                    <h:outputText value="#{emprestimo.usuario.nomeRazaoSocial}" />  
+                                </p:column>                 
+
+                                <p:column> 
+
+                                    <f:facet name="header">  
+                                        <h:outputText  value="Operador"/>  
+                                    </f:facet>  
+                                    <h:outputText value="#{emprestimo.operador.nomeRazaoSocial}" />  
+                                </p:column> 
+                                
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText  value="Título" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{emprestimo.exemplar.obra.titulo}" />  
+                                </p:column>
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText  value="Exemplar" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{emprestimo.exemplar.numeroExemplar}" />  
+                                </p:column> 
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText  value="Empréstimo" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{emprestimo.dataEmprestimo}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy  hh:MM:ss" type="date" />
+                                    </h:outputText>
+                                </p:column>
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText  value="Devolução" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{emprestimo.dataDevolucao}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy" type="date" />
+                                    </h:outputText>
+                                </p:column>
+                            </p:dataTable>
+                        </h:panelGrid>
+                     </h:form>
+                </p:tab>
+            </p:tabView>  
+        </p:fieldset>
+        
+    </ui:define>
+
+</ui:composition>

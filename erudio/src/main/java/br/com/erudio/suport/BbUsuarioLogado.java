@@ -17,13 +17,13 @@ import org.springframework.security.core.userdetails.User;
 public class BbUsuarioLogado implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private String login;
-    SecurityContext context = SecurityContextHolder.getContext();
+    private static String login;
+    static SecurityContext context = SecurityContextHolder.getContext();
 
     public BbUsuarioLogado() {
     }
 
-    public Pessoa procuraPessoa() {
+    public static Pessoa procuraPessoa() {
         if (context instanceof SecurityContext) {
             Authentication authentication = context.getAuthentication();
             if (authentication instanceof Authentication) {

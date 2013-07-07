@@ -52,12 +52,13 @@
                         <p:menuitem value="Cadastrar Cursos" url="/restrict/cadastrarcurso.faces"/>                        
                     </p:submenu>
                     <p:submenu label="Biblioteca">
-                        <p:menuitem value="Emprestimo" url="#"/>
-                        <p:menuitem value="Devolução" url="#"/>
-                        <p:menuitem value="Reserva" url="#"/>                        
+                        <p:menuitem value="Emprestimo" url="/restrict/efetuaremprestimo.faces"/>
+                        <p:menuitem value="Devolução" url="/restrict/efetuardevolucao.faces"/>
+                        <p:menuitem value="Reserva" url="/restrict/efetuarreserva.faces"/>                        
                     </p:submenu>
-                    <p:submenu label="Biblioteca Cadastros">
-                        <p:menuitem value="Obra" url="/restrict/cadastrarobra.faces"/>                      
+                    <p:submenu label="Obras">
+                        <p:menuitem value="Cadastro" url="/restrict/cadastrarobra.faces"/>                      
+                        <p:menuitem value="Consulta" url="/restrict/consultarobras.faces"/>                      
                     </p:submenu>
                     <p:submenu label="Emissão de Etiquetas">
                         <p:menuitem value="Código de Barras" url="#"/>

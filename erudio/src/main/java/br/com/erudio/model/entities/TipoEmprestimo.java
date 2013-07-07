@@ -22,8 +22,10 @@ public class TipoEmprestimo implements Serializable {
     @GeneratedValue
     @Column(name="IdTipoEmprestimo")
     private Integer idTipoEmprestimo;
-    @Column(name="Descricao", unique=true, nullable=false, length=10)
+    @Column(name="Descricao")
     private String descricao;
+    @Column(name="NumeroDeDias")
+    private Integer numeroDeDias;
 
     @OneToMany(mappedBy = "tipoEmprestimo", fetch = FetchType.LAZY)
     @ForeignKey(name = "EmprestimoTipoEmprestimo")        
@@ -56,6 +58,14 @@ public class TipoEmprestimo implements Serializable {
         this.emprestimos = emprestimos;
     }
 
+    public Integer getNumeroDeDias() {
+        return numeroDeDias;
+    }
+
+    public void setNumeroDeDias(Integer numeroDeDias) {
+        this.numeroDeDias = numeroDeDias;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

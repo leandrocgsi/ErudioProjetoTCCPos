@@ -15,7 +15,12 @@ import org.hibernate.annotations.ForeignKey;
 @Table(name="tiporeserva")
 public class TipoReserva implements Serializable {
     
-    private static final long serialVersionUID =  1L;   
+    private static final long serialVersionUID =  1L;  
+    
+    public static final int ATENDIDA = 1;
+    public static final int CANCELADA = 2;
+    public static final int PENDENTE = 3;
+    public static final int VENCIDA = 4;
     
     @Id
     @GeneratedValue

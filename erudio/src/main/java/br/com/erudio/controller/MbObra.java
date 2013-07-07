@@ -39,12 +39,12 @@ public class MbObra implements Serializable {
 
     public String limpObra() {
         obra = new Obra();
-        exemplar = new Exemplar();
+        exemplar = new Exemplar();        
         return editObra();
     }
 
     public String editObra() {
-        return "/restrict/home.faces";
+        return "/restrict/cadastrarobra.faces";
     }
 
     public String addObra() {
@@ -53,8 +53,9 @@ public class MbObra implements Serializable {
         } else {
             updateObra();
         }
-        limpObra();
-        return null;
+        obra = new Obra();
+        exemplar = new Exemplar(); 
+        return "/restrict/consultarobras.faces";
     }
 
     private void insertObra() {

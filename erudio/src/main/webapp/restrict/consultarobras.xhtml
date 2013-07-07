@@ -11,58 +11,55 @@
     <ui:define name="tarefas">
         <h:form>
             <p:growl id="msg0"/>
-            <p:dataTable id="idTabela" var="funcionario" value="#{mbFuncionario.funcionarios}"
+            <p:dataTable id="idTabela" var="obra" value="#{mbObra.obras}"
                          paginator="true" rows="10" emptyMessage="Nenhum registro encontrado"
                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}
                          {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          rowsPerPageTemplate="5,10,15">
 
-                <f:facet name="header">Lista de Pessoas</f:facet>
+                <f:facet name="header">Lista de Obras</f:facet>
+                
                 <p:column>
                     <f:facet name="header">
-                        <h:outputText value="Nome"/>
+                        <h:outputText value="Título"/>
                     </f:facet>
-                    <h:outputText value="#{funcionario.nomeRazaoSocial}"/>
+                    <h:outputText value="#{obra.titulo}"/>
                 </p:column>
 
                 <p:column>
                     <f:facet name="header">
-                        <h:outputText value="Email"/>
+                        <h:outputText value="Subtítulo"/>
                     </f:facet>
-                    <h:outputText value="#{funcionario.email}"/>
+                    <h:outputText value="#{obra.subtitulo}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Autor"/>
+                    </f:facet>
+                    <h:outputText value="#{obra.autor}"/>
                 </p:column>
 
                 <p:column>
                     <f:facet name="header">
-                        <h:outputText value="Telefone"/>
+                        <h:outputText value="Editora"/>
                     </f:facet>
-                    <h:outputText value="#{funcionario.telefone}"/>
+                    <h:outputText value="#{obra.editora}"/>
                 </p:column>
 
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Cidade"/>
-                    </f:facet>
-                    <h:outputText value="#{funcionario.endereco.cidade.nome}"/>
-                </p:column>
+
 
                 <p:column>
                     <f:facet name="header">
                         <h:outputText value="Ações"/>
                     </f:facet>
-                    <p:commandButton action="#{mbFuncionario.editFuncionario}"
+                    <p:commandButton action="#{mbObra.editObra}"
                         value="Editar" image="ui-icon ui-icon-pencil"
                         update="@form" ajax="false">
-                        <f:setPropertyActionListener value="#{funcionario}" target="#{mbFuncionario.funcionario}"/>
-                        <f:setPropertyActionListener value="#{funcionario.idPessoa}" target="#{mbFuncionario.funcionario.idPessoa}"/>
-                        <f:setPropertyActionListener value="#{funcionario.endereco}" target="#{mbFuncionario.endereco}"/>
-                        <f:setPropertyActionListener value="#{funcionario.endereco.estado.idEstado}" target="#{mbFuncionario.endereco.estado.idEstado}"/>                        
-                        <f:setPropertyActionListener value="#{funcionario.endereco.cidade.idCidade}" target="#{mbFuncionario.endereco.cidade.idCidade}"/>
-                        <f:setPropertyActionListener value="#{funcionario.endereco.tipoendereco.idTipoEndereco}" target="#{mbFuncionario.endereco.tipoendereco.idTipoEndereco}"/>
-                        <f:setPropertyActionListener value="#{funcionario.endereco.tipologradouro.idTipoLogradouro}" target="#{mbFuncionario.endereco.tipologradouro.idTipoLogradouro}"/>
+                        <f:setPropertyActionListener value="#{obra}" target="#{mbObra.obra}"/>
+                        <f:setPropertyActionListener value="#{obra.idObra}" target="#{mbObra.obra.idObra}"/>
                     </p:commandButton>
                     
-                    <p:commandButton value="Cancelar" action="#{mbFuncionario.limpFuncionario}"
+                    <p:commandButton value="Cancelar" action="#{mbObra.limpObra}"
                                      image="ui-icon ui-icon-close" update="@form"/>
 
                 </p:column>
