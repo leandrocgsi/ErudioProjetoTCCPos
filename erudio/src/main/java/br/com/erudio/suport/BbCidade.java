@@ -14,7 +14,6 @@ import javax.faces.bean.RequestScoped;
 public class BbCidade  implements Serializable {
     
     private static final long serialVersionUID = 1L;
-    private List<Cidade> cidades;
 
     public List<Cidade> getCidades() {
         InterfaceDAO<Cidade> cidadeDAO = new HibernateDAO<Cidade>(Cidade.class, FacesContextUtil.getRequestSession());

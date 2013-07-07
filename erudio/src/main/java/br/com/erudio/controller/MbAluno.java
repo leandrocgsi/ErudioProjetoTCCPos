@@ -66,7 +66,7 @@ public class MbAluno implements Serializable {
         } else {
             updateAluno();
         }
-        return null;
+        return "/restrict/consultaralunos.faces";
     }
 
     private void insertAluno() {
@@ -74,9 +74,10 @@ public class MbAluno implements Serializable {
         if (aluno.getSenha() == null ? confereSenha == null : aluno.getSenha().equals(ConverterSHA1.cipher(confereSenha))) {
             aluno.setPermissao("ROLE_ALUNO");
             pessoaDAO().save(aluno);
-            endereco.setPessoa(aluno);
-            enderecoDAO().save(endereco);
+            endereco.setPessoa(aluno);            
+            enderecoDAO().save(endereco);            
             matricula.setAluno(aluno);
+            matricula.setDataMatricula(new Date());
             matriculaDAO().save(matricula);
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));

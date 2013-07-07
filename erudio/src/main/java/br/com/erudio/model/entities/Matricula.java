@@ -29,7 +29,7 @@ public class Matricula implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataMatricula;        
             
-    @OneToOne(optional=true, fetch= FetchType.LAZY)
+    @OneToOne(optional=true, fetch= FetchType.EAGER)
     @ForeignKey(name="MatriculaCurso")
     @JoinColumn(name = "IdCurso", referencedColumnName = "IdCurso")
     private Curso curso;
@@ -44,7 +44,15 @@ public class Matricula implements Serializable {
     @JoinColumn(name="IdPeriodoLetivo", referencedColumnName = "IdPeriodoLetivo")
     private PeriodoLetivo periodoletivo;
     
+    @ManyToOne
+    @ForeignKey(name = "MatriculaModulo")
+    @JoinColumn(name="IdModulo", referencedColumnName = "IdModulo")
+    private Modulo modulo;
+    
     public Matricula() {
+        this.modulo = new Modulo();
+        this.periodoletivo = new PeriodoLetivo();
+        this.curso = new Curso();
     }
 
     public Integer getIdMatricula() {
@@ -70,7 +78,7 @@ public class Matricula implements Serializable {
     public void setPeriodoletivo(PeriodoLetivo periodoletivo) {
         this.periodoletivo = periodoletivo;
     }
-//
+
     public Curso getCurso() {
         return curso;
     }
@@ -86,6 +94,14 @@ public class Matricula implements Serializable {
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }        
+
+    public Modulo getModulo() {
+        return modulo;
+    }
+
+    public void setModulo(Modulo modulo) {
+        this.modulo = modulo;
+    }
 
     @Override
     public int hashCode() {

@@ -26,17 +26,27 @@
                                 <p:inputText id="nomeAluno" size="40" value="#{mbAluno.aluno.nomeRazaoSocial}"
                                              required="true" requiredMessage="O campo [Nome] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase();"/>
-                                
+
+                                <h:outputLabel for="tipoAluno" value="Tipo Aluno.:"/>
+                                <p:selectOneMenu id="tipoAluno" value="#{mbAluno.aluno.tipoaluno.idTipoAluno}">
+                                    <f:selectItems value="#{bbTipoAluno.tipoAlunos}" var="tipoAluno" itemValue="#{tipoAluno.idTipoAluno}" itemLabel="#{tipoAluno.descricaoTipoAluno}"/>
+                                </p:selectOneMenu>
+
+                                <h:outputLabel for="turno" value="Turno.:"/>
+                                <p:selectOneMenu id="turno" value="#{mbAluno.aluno.turno.idTurno}">
+                                    <f:selectItems value="#{bbTurno.turnos}" var="turno" itemValue="#{turno.idTurno}" itemLabel="#{turno.descricaoTurno}"/>
+                                </p:selectOneMenu>
+
                                 <h:outputLabel for="mae" value="Pai.:"/>
                                 <p:inputText id="mae" size="40" value="#{mbAluno.aluno.pai}"
                                              required="true" requiredMessage="O campo [Pai] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase();"/>
-                                
+
                                 <h:outputLabel for="pai" value="Mãe.:"/>
                                 <p:inputText id="pai" size="40" value="#{mbAluno.aluno.mae}"
                                              required="true" requiredMessage="O campo [Mãe] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase();"/>
-                                
+
                                 <h:outputLabel for="responsavel" value="Responsável.:"/>
                                 <p:inputText id="responsavel" size="40" value="#{mbAluno.aluno.responsavel}"
                                              required="true" requiredMessage="O campo [Responsável] é obrigatório"
@@ -139,23 +149,28 @@
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
-                    
-                    <p:tab title="Informações da Matrícula" id="infoEndereco">
+
+                    <p:tab title="Informações da Matrícula" id="infoMatricula">
                         <p:panel header="Informações da Matrícula">
                             <p:growl id="msg2"/>
                             <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid2">
 
-                                <h:outputLabel for="uf" value="Estado.:" />
-                                <p:selectOneMenu id="uf" value="#{mbAluno.endereco.estado.idEstado}">
-                                    <f:selectItems value="#{bbEstado.estados}" var="estado"
-                                                   itemValue="#{estado.idEstado}" itemLabel="#{estado.nomeEstado}"/>
+                                <h:outputLabel for="curso" value="Curso.:" />
+                                <p:selectOneMenu id="curso" value="#{mbAluno.matricula.curso.idCurso}">
+                                    <f:selectItems value="#{bbCurso.cursos}" var="cursos"
+                                                   itemValue="#{cursos.idCurso}" itemLabel="#{cursos.nome}"/>
                                 </p:selectOneMenu>
 
+                                <h:outputLabel for="modulo" value="Módulo.:" />
+                                <p:selectOneMenu id="modulo" value="#{mbAluno.matricula.modulo.idModulo}">
+                                    <f:selectItems value="#{bbModulo.modulos}" var="modulos"
+                                                   itemValue="#{modulos.idModulo}" itemLabel="#{modulos.descricao}"/>
+                                </p:selectOneMenu>
 
-                                <h:outputLabel for="cidade" value="Cidade.:" />
-                                <p:selectOneMenu id="cidade" value="#{mbAluno.endereco.cidade.idCidade}">
-                                    <f:selectItems value="#{bbCidade.cidades}" var="cidade"
-                                                   itemValue="#{cidade.idCidade}" itemLabel="#{cidade.nome}"/>
+                                <h:outputLabel for="periodoLetivo" value="Período Letivo.:" />
+                                <p:selectOneMenu id="periodoLetivo" value="#{mbAluno.matricula.periodoletivo.idPeriodoLetivo}">
+                                    <f:selectItems value="#{bbPeriodoLetivo.periodoLetivos}" var="periodoLetivos"
+                                                   itemValue="#{periodoLetivos.idPeriodoLetivo}" itemLabel="#{periodoLetivos.descricao}"/>
                                 </p:selectOneMenu>
 
                                 <h:outputLabel/>

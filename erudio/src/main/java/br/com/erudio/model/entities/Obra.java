@@ -59,10 +59,11 @@ public class Obra implements Serializable {
     @ForeignKey(name="ObraTipoObra")
     @JoinColumn(name = "IdTipoObra", referencedColumnName="IdTipoObra")         
     private TipoObra tipoobra;
-
-	//IdTipoObra;
     
-    public Obra() {}
+    public Obra() {
+        this.tipoobra = new TipoObra();
+        this.edicao = new Edicao();
+    }
 
     public Integer getIdObra() {
         return idObra;

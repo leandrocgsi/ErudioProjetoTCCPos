@@ -27,7 +27,11 @@
                                              required="true" requiredMessage="O campo [Nome] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase();"/>
                                        
-
+                                <h:outputLabel for="turno" value="Turno.:"/>
+                                <p:selectOneMenu id="turno" value="#{mbFuncionario.funcionario}">
+                                    <f:selectItems value="#{bbTurno.turnos}" var="turno" itemValue="#{turno.idTurno}" itemLabel="#{turno.descricao}"/>
+                                </p:selectOneMenu>
+                                
                                 <h:outputLabel for="sexo" value="Sexo.:"/>
                                 <p:selectOneMenu id="sexo" value="#{mbFuncionario.funcionario.sexo.idSexo}">
                                     <f:selectItems value="#{bbSexo.sexos}" var="sexo" itemValue="#{sexo.idSexo}" itemLabel="#{sexo.descricao}"/>
@@ -46,10 +50,10 @@
                                 </p:inputText>
 
                                 <h:outputLabel for="cpf" value="CPF.:"/>
-                                <p:inputText id="cpf" size="40" value="#{mbFuncionario.funcionario.cpfcnpj}"
+                                <p:inputMask id="cpf" size="40" mask="999.999.999-99" value="#{mbFuncionario.funcionario.cpfcnpj}"
                                              required="true" requiredMessage="O campo [CPF] é obrigatório">
                                     <f:validator validatorId="cpfValidator"/>
-                                </p:inputText>
+                                </p:inputMask>
 
                                 <h:outputLabel for="dataNascimento" value="Data de Nascimento.:"/>
                                 <p:calendar id="dataNascimento" value="#{mbFuncionario.funcionario.dataDeNascimentoFundacao}"

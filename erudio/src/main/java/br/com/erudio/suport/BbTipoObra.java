@@ -16,7 +16,7 @@ public class BbTipoObra  implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
-    public List<TipoObra> getTipoObras() {
+    public List<TipoObra> getTipoobras() {        
         Session session = FacesContextUtil.getRequestSession();
         InterfaceDAO<TipoObra> tipoObraDAO = new HibernateDAO<TipoObra>(TipoObra.class, session);
         return tipoObraDAO.getEntities();

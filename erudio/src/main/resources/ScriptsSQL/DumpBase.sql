@@ -38,6 +38,16 @@ INSERT INTO `estado` (`IdEstado`,`NomeEstado`) VALUES
 INSERT INTO `sexo` (`IdSexo`,`Descricao`) VALUES 
  (1,'MASCULINO'),
  (2,'FEMININO');
+INSERT INTO `curso` (`IdCurso`,`Nome`) VALUES 
+ (1,'GEOGRAFIA');
+INSERT INTO `modulo` (`IdModulo`,`Descricao`,`IdCurso`) VALUES 
+ (1,'MÓDULO 1',NULL),
+ (2,'MÓDULO 2',NULL),
+ (3,'MÓDULO 3',NULL);
+INSERT INTO `periodoletivo` (`IdPeriodoLetivo`,`Descricao`) VALUES 
+ (1,'PERÍODO 1'),
+ (2,'PERÍODO 2'),
+ (3,'PERÍODO 3');
 INSERT INTO `tipoendereco` (`IdTipoEndereco`,`DescricaoTipoEndereco`) VALUES 
  (1,'RESIDENCIAL'),
  (2,'COMERCIAL'),

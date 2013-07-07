@@ -24,7 +24,7 @@ public class TipoObra implements Serializable {
     @Column(name = "DescricaoTipoObra", nullable = false, length = 35)
     private String descricaoTipoObra;
     
-    @OneToMany(mappedBy = "tipoobra", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tipoobra", fetch = FetchType.EAGER)
     @ForeignKey(name="ObraTipoObra")
     private List<Obra> obras;
 
