@@ -27,6 +27,10 @@ public class Exemplar implements Serializable {
     private String volume;
     @Column (name="Tomo")
     private String tomo;
+    @Column (name="Disponivel")
+    private Boolean disponivel;
+    @Column (name="NumeroExemplar")
+    private Integer numeroExemplar;
     
     @OneToMany(mappedBy = "exemplar", fetch = FetchType.LAZY)
     @ForeignKey(name = "EmprestimoExemplar")
@@ -79,6 +83,22 @@ public class Exemplar implements Serializable {
         this.obra = obra;
     }
 
+    public Boolean getDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public Integer getNumeroExemplar() {
+        return numeroExemplar;
+    }
+
+    public void setNumeroExemplar(Integer numeroExemplar) {
+        this.numeroExemplar = numeroExemplar;
+    }
+           
     @Override
     public int hashCode() {
         int hash = 7;

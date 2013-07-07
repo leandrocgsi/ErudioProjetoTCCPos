@@ -74,15 +74,7 @@
                                 <p:inputText id="valorDeReposicao" size="40" value="#{mbObra.obra.valorDeReposicao}"
                                              required="true" requiredMessage="O campo [Valor de Reposição] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase();"/>
-                            </h:panelGrid>
-                        </p:panel>
-                    </p:tab>
-
-                    <p:tab title="Informações dos Exemplares" id="infoEndereco">
-                        <p:panel header="Informações dos Exemplares">
-                            <p:growl id="msg1"/>
-                            <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid1">
-
+      
                                 <h:outputLabel for="tomo" value="Tomo.:"/>
                                 <p:inputText id="tomo" size="40" value="#{mbObra.exemplar.tomo}"                                             
                                              onkeyup="this.value = this.value.toUpperCase();"/>

@@ -18,7 +18,7 @@ public class MbObra implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private Integer quantidade = 0;
+    private Integer quantidade = 1;
     private Obra obra = new Obra();
     private Exemplar exemplar = new Exemplar();
     private List<Obra> obras;    
@@ -44,7 +44,7 @@ public class MbObra implements Serializable {
     }
 
     public String editObra() {
-        return "/restrict/cadastrarobra.faces";
+        return "/restrict/home.faces";
     }
 
     public String addObra() {
@@ -60,7 +60,9 @@ public class MbObra implements Serializable {
     private void insertObra() {
         obraDAO().save(obra);
         for (int i = 1; i <= quantidade; i++) {
-            exemplar.setIdExemplar(i);
+            exemplar = new Exemplar();
+            exemplar.setDisponivel(Boolean.TRUE);
+            exemplar.setNumeroExemplar(i);
             exemplar.setObra(obra);
             exemplarDAO().save(exemplar);   
         }        
