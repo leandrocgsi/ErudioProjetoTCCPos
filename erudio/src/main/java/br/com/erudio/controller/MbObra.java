@@ -18,6 +18,7 @@ public class MbObra implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
+    private Integer quantidade = 0;
     private Obra obra = new Obra();
     private Exemplar exemplar = new Exemplar();
     private List<Obra> obras;    
@@ -58,8 +59,11 @@ public class MbObra implements Serializable {
 
     private void insertObra() {
         obraDAO().save(obra);
-        exemplar.setObra(obra);
-        exemplarDAO().save(exemplar);
+        for (int i = 1; i <= quantidade; i++) {
+            exemplar.setIdExemplar(i);
+            exemplar.setObra(obra);
+            exemplarDAO().save(exemplar);   
+        }        
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
     }
@@ -109,5 +113,12 @@ public class MbObra implements Serializable {
     public void setExemplar(Exemplar exemplar) {
         this.exemplar = exemplar;
     }
-            
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }               
 }

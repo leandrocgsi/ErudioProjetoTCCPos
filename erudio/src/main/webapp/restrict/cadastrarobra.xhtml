@@ -14,8 +14,8 @@
             <br/>
             <h:form>
                 <p:wizard nextLabel="Próxima Aba" backLabel="Aba Anterior">
-                    <p:tab title="Informações Básicas" id="infoPessoal">
-                        <p:panel header="Informações Básicas do Obra">
+                    <p:tab title="Informações Básicas" id="infoObra">
+                        <p:panel header="Informações Básicas da Obra">
                             <p:growl id="msg0"/>
                             <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
 
@@ -28,8 +28,7 @@
                                              onkeyup="this.value = this.value.toUpperCase();"/>
 
                                 <h:outputLabel for="subtitulo" value="Subtítulo.:"/>
-                                <p:inputText id="subtitulo" size="40" value="#{mbObra.obra.subtitulo}"
-                                             required="true" requiredMessage="O campo [Subtítulo] é obrigatório"
+                                <p:inputText id="subtitulo" size="40" value="#{mbObra.obra.subtitulo}"                                             
                                              onkeyup="this.value = this.value.toUpperCase();"/>
 
                                 <h:outputLabel for="autor" value="Autor.:"/>
@@ -37,26 +36,67 @@
                                              required="true" requiredMessage="O campo [Autor] é obrigatório"
                                              onkeyup="this.value = this.value.toUpperCase();"/>
 
+                                <h:outputLabel for="editora" value="Editora.:"/>
+                                <p:inputText id="editora" size="40" value="#{mbObra.obra.editora}"
+                                             required="true" requiredMessage="O campo [Editora] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
+                                <h:outputLabel for="assunto" value="Assunto.:"/>
+                                <p:inputText id="assunto" size="40" value="#{mbObra.obra.assunto}"
+                                             required="true" requiredMessage="O campo [Assunto] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
                                 <h:outputLabel for="tipoobra" value="Tipo de Obra.:"/>
                                 <p:selectOneMenu id="tipoobra" value="#{mbObra.obra.tipoobra.idTipoObra}" >
                                     <f:selectItems  value="#{bbTipoObra.tipoobras}"  var="tipoobra" itemValue="#{tipoobra.idTipoObra}" itemLabel="#{tipoobra.descricaoTipoObra}"/>
                                 </p:selectOneMenu>
-                                
+
                                 <h:outputLabel for="edicao" value="Edicao.:"/>
                                 <p:selectOneMenu id="edicao" value="#{mbObra.obra.edicao.idEdicao}">
-                                        <f:selectItems value="#{bbEdicao.edicaos}" var="edicao" itemValue="#{edicao.idEdicao}" itemLabel="#{edicao.descricao}"/>
+                                    <f:selectItems value="#{bbEdicao.edicaos}" var="edicao" itemValue="#{edicao.idEdicao}" itemLabel="#{edicao.descricao}"/>
                                 </p:selectOneMenu>
 
+                                <h:outputLabel for="anoDePublicacao" value="Ano de Publicação.:"/>
+                                <p:inputText id="anoDePublicacao" size="40" value="#{mbObra.obra.anoDePublicacao}"                                             
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
+                                <h:outputLabel for="notacaoDeArea" value="Notação de Área.:"/>
+                                <p:inputText id="notacaoDeArea" size="40" value="#{mbObra.obra.notacaoDeArea}"
+                                             required="true" requiredMessage="O campo [Notação de Área] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
+                                <h:outputLabel for="notacaoDeAutor" value="Notação de Autor.:"/>
+                                <p:inputText id="notacaoDeAutor" size="40" value="#{mbObra.obra.notacaoDeAutor}"
+                                             required="true" requiredMessage="O campo [Notação de Autor] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
+                                <h:outputLabel for="valorDeReposicao" value="Valor de Reposição.:"/>
+                                <p:inputText id="valorDeReposicao" size="40" value="#{mbObra.obra.valorDeReposicao}"
+                                             required="true" requiredMessage="O campo [Valor de Reposição] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
 
-                    <p:tab title="Informações do Endereço" id="infoEndereco">
-                        <p:panel header="Informações do Endereço">
+                    <p:tab title="Informações dos Exemplares" id="infoEndereco">
+                        <p:panel header="Informações dos Exemplares">
                             <p:growl id="msg1"/>
                             <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid1">
 
-                                
+                                <h:outputLabel for="tomo" value="Tomo.:"/>
+                                <p:inputText id="tomo" size="40" value="#{mbObra.exemplar.tomo}"                                             
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
+                                <h:outputLabel for="volume" value="Volume.:"/>
+                                <p:inputText id="volume" size="40" value="#{mbObra.exemplar.volume}"                                             
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
+                                <h:outputLabel for="quantidade" value="Quantidade de Exemplares.:"/>
+                                <p:inputText id="quantidade" size="40" value="#{mbObra.quantidade}"
+                                             required="true" requiredMessage="O campo [Quantidade de Exemplares] é obrigatório"
+                                             onkeyup="this.value = this.value.toUpperCase();"/>
+
+                                <h:outputLabel/>
                                 <p:panel>
                                     <p:commandButton value="Salvar" action="#{mbObra.addObra}"
                                                      image="ui-icon ui-icon-disk" update="@form"/>
@@ -66,7 +106,7 @@
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
-                                       
+
                 </p:wizard>
             </h:form>
         </p:fieldset>
