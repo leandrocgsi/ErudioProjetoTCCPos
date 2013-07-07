@@ -23,8 +23,6 @@ public class Emprestimo implements Serializable {
     @GeneratedValue
     @Column(name = "IdEmprestimo")
     private Integer idEmprestimo;
-    //IdPessoaOperador
-    //IdPessoaAluno
     @Column(name = "DataEmprestimo")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataEmprestimo;    
@@ -67,6 +65,7 @@ public class Emprestimo implements Serializable {
     public Emprestimo() {
         this.operador = new Pessoa();
         this.usuario = new Pessoa();
+        this.tipoEmprestimo = new TipoEmprestimo();
     }
 
     public Integer getIdEmprestimo() {

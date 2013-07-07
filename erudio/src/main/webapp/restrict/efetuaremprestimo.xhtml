@@ -19,9 +19,9 @@
                         <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid">
                                                                                
                             <h:outputLabel for="idTipoEmprestimo" value="Tipo de Empréstimo .:"/>
-                            <h:selectOneMenu id="idTipoEmprestimo" value="#{mbEmprestimo.emprestimo.tipoEmprestimo.idTipoEmprestimo}">
+                            <p:selectOneMenu id="idTipoEmprestimo" value="#{mbEmprestimo.emprestimo.tipoEmprestimo.idTipoEmprestimo}">
                                 <f:selectItems value="#{bbTipoEmprestimo.tipoEmprestimos}" var="tp" itemValue="#{tp.idTipoEmprestimo}" itemLabel="#{tp.descricao}" />
-                            </h:selectOneMenu>
+                            </p:selectOneMenu>
 
                             <h:outputLabel for="idPessoaAluno" value="Código do Usuário .:" />
                             <p:inputText id="idPessoaAluno" value="#{mbEmprestimo.emprestimo.usuario.idPessoa}" size="40" required="true" requiredMessage="É obrigatório a seleção do [Codigo do Usuário] !" />
