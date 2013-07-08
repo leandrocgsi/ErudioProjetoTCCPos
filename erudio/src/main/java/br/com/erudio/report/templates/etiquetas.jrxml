@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetas" language="groovy" columnCount="5" printOrder="Horizontal" pageWidth="555" pageHeight="802" columnWidth="111" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5dc42922-2694-41c7-8d60-e9af9a51dc6a">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetas" language="groovy" columnCount="5" printOrder="Horizontal" pageWidth="555" pageHeight="802" columnWidth="111" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -11,18 +11,18 @@
 	<detail>
 		<band height="67" splitType="Stretch">
 			<textField>
-				<reportElement uuid="512fde8c-d5fb-4d7d-94cb-b804d6857684" x="2" y="53" width="102" height="14"/>
+				<reportElement x="2" y="53" width="102" height="14"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{Titulo}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement uuid="e538b440-9bfa-4506-8409-3efc1a20a0da" positionType="Float" isPrintRepeatedValues="false" x="7" y="3" width="96" height="40"/>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="7" y="3" width="96" height="40"/>
 				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="false" checksumRequired="false">
 					<jr:codeExpression><![CDATA[$F{IdExemplar}]]></jr:codeExpression>
 				</jr:barbecue>
 			</componentElement>
 			<textField>
-				<reportElement uuid="27bd8532-0a52-492d-bec0-45acf2fb6440" x="10" y="43" width="82" height="17"/>
+				<reportElement x="10" y="43" width="82" height="17"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{IdExemplar}]]></textFieldExpression>
 			</textField>
