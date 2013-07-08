@@ -29,9 +29,9 @@ public class Curso implements Serializable{
     @ForeignKey(name="MatriculaCurso")    
     private Matricula matricula;
     
-    @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
-    @ForeignKey(name = "CursoModulo") 
-    private List<Modulo> modulos;
+//    @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
+//    @ForeignKey(name = "CursoModulo") 
+//    private List<Modulo> modulos;
     
     @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
     @ForeignKey(name = "ProfessorVinculoCurso")
@@ -63,13 +63,13 @@ public class Curso implements Serializable{
         this.matricula = matricula;
     }
 
-    public List<Modulo> getModulos() {
-        return modulos;
-    }
-
-    public void setModulos(List<Modulo> modulos) {
-        this.modulos = modulos;
-    }       
+//    public List<Modulo> getModulos() {
+//        return modulos;
+//    }
+//
+//    public void setModulos(List<Modulo> modulos) {
+//        this.modulos = modulos;
+//    }       
 
     public List<ProfessorVinculo> getProfessorvinculos() {
         return professorvinculos;

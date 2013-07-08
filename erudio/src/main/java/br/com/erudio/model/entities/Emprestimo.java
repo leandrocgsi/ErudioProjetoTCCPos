@@ -63,6 +63,7 @@ public class Emprestimo implements Serializable {
     private Pessoa usuario;
 
     public Emprestimo() {
+        this.exemplar = new Exemplar();
         this.operador = new Pessoa();
         this.usuario = new Pessoa();
         this.tipoEmprestimo = new TipoEmprestimo();

@@ -22,16 +22,19 @@ public class Reserva implements Serializable {
     @GeneratedValue
     @Column(name = "idReserva")
     private Integer idReserva;
-    //idPessoaOperador;
-    //idObra;
-    //idPessoaAluno;
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataReserva;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataOperacao;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataCancelamento;
-    
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "DataLimite", nullable = true)
+    private Date dataLimite;    
+    @Column(name = "Exemplar")
+    private Integer exemplar;
+        
     @ManyToOne(optional=false, fetch = FetchType.EAGER)
     @ForeignKey(name="ReservaTipoReserva")
     @JoinColumn(name = "IdTipoReserva", referencedColumnName="IdTipoReserva")
@@ -121,6 +124,22 @@ public class Reserva implements Serializable {
         this.usuario = usuario;
     }
 
+    public Date getDataLimite() {
+        return dataLimite;
+    }
+
+    public void setDataLimite(Date dataLimite) {
+        this.dataLimite = dataLimite;
+    }
+
+    public Integer getExemplar() {
+        return exemplar;
+    }
+
+    public void setExemplar(Integer exemplar) {
+        this.exemplar = exemplar;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

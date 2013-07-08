@@ -26,10 +26,10 @@ public class Modulo implements Serializable {
     @Column(name="Descricao")
     private String descricao;
                 
-    @ManyToOne(optional=true)
-    @ForeignKey(name = "CursoModulo") 
-    @JoinColumn(name="IdCurso", referencedColumnName = "IdCurso")
-    private Curso curso;
+//    @ManyToOne(optional=true)
+//    @ForeignKey(name = "CursoModulo") 
+//    @JoinColumn(name="IdCurso", referencedColumnName = "IdCurso")
+//    private Curso curso;
     
     public Modulo() {}
 
@@ -47,14 +47,6 @@ public class Modulo implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
     }
 
     @Override

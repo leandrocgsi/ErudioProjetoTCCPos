@@ -55,13 +55,15 @@
                         <p:menuitem value="Emprestimo" url="/restrict/efetuaremprestimo.faces"/>
                         <p:menuitem value="Devolução" url="/restrict/efetuardevolucao.faces"/>
                         <p:menuitem value="Reserva" url="/restrict/efetuarreserva.faces"/>                        
+                        <p:menuitem value="Consultar Reservas" url="/restrict/consultarreservas.faces"/>                        
+                        <p:menuitem value="Retirar Reserva" url="/restrict/confirmarreserva.faces"/>                        
                     </p:submenu>
                     <p:submenu label="Obras">
                         <p:menuitem value="Cadastro" url="/restrict/cadastrarobra.faces"/>                      
                         <p:menuitem value="Consulta" url="/restrict/consultarobras.faces"/>                      
                     </p:submenu>
                     <p:submenu label="Emissão de Etiquetas">
-                        <p:menuitem value="Código de Barras" url="#"/>
+                        <p:menuitem value="Código de Barras"  action="#{mbReportEtiqueta.makeReportVEtiqueta}" ajax="false"/>
                         <p:menuitem value="Lombada" url="#"/>                        
                     </p:submenu>
                 </p:menubar> 

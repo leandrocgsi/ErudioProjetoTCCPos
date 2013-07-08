@@ -14,6 +14,6 @@ public interface InterfaceDAO<T> {
     T getEntityByDetachedCriteria(DetachedCriteria criteria);
     T getEntityByHQLQuery(String stringQuery);
     List<T> getEntities();
-    List<T> getListByDetachedCriteria(DetachedCriteria criteria);    
-    
+    List<T> getListByDetachedCriteria(DetachedCriteria criteria);  
+    List<T> getListByHQLQuery(String stringQuery);    
 }

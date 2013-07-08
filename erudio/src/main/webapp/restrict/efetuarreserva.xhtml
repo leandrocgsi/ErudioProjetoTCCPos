@@ -13,9 +13,9 @@
 
             <br/>
 
-            <p:tabView dynamic="true" cache="true"> 
+            <p:tabView dynamic="true" cache="true"  id="tbv"> 
                 <p:tab title="Reservas"> 
-                    <h:form prependId="false">
+                    <h:form prependId="false" id="cadastrareserva">
 
                         <p:growl id="msg" />
 
@@ -58,7 +58,8 @@
                             <h:outputText value="#{obra.anoDePublicacao}" />
                         </p:column>
                         <p:column headerText="Selecionar">		
-                            <p:commandButton image="ui-icon ui-icon-check" title="Selecionar" oncomplete="obradlg.hide();" process="@this" update="obragrid">								
+                            <p:commandButton image="ui-icon ui-icon-check" title="Selecionar" onclick="dialogInfoCliente.hide();" process="@this" 
+                                                    update=":tbv:cadastrareserva:obragrid">								
                                 <f:setPropertyActionListener target="#{mbReserva.reserva.obra}" value="#{obra}" />
                             </p:commandButton>
                         </p:column>
@@ -66,7 +67,7 @@
                 </h:form>
             </p:dialog>
 
-            <p:dialog header="Listagem - Usuario" widgetVar="usuariodlg" modal="false" resizable="false" height="510"  width="900">
+                <p:dialog header="Listagem - Usuario" widgetVar="usuariodlg" modal="false" resizable="false" height="510"  width="900">
                 <h:form> 
                     <p:dataTable var="usuario" value="#{bbUsuario.lista}" paginator="true" rows="8">
                         <p:column headerText="Codigo" filterBy="#{usuario.idPessoa}" filterMatchMode="contains">				     
@@ -82,7 +83,8 @@
                             <h:outputText value="#{usuario.email}" />
                         </p:column>
                         <p:column headerText="Selecionar">		
-                            <p:commandButton image="ui-icon ui-icon-check" title="Selecionar" oncomplete="usuariodlg.hide();" process="@this" update="usuariogrid">								
+                            <p:commandButton image="ui-icon ui-icon-check" title="Selecionar"  onclick="dialogInfoCliente.hide();" process="@this" 
+                                                    update=":tbv:cadastrareserva:usuariogrid">								
                                 <f:setPropertyActionListener target="#{mbReserva.reserva.usuario}" value="#{usuario}" />
                             </p:commandButton>
                         </p:column>

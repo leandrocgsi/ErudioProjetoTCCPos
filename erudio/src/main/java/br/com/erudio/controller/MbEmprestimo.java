@@ -47,7 +47,7 @@ public class MbEmprestimo implements Serializable{
         TipoReserva situacao = situacaoDAO.getEntity(TipoReserva.PENDENTE);
         DetachedCriteria criteria = DetachedCriteria.forClass(Reserva.class);
         criteria.add(Restrictions.eq("obra", exemplar.getObra())) // determina obra
-                .add(Restrictions.eq("situacaoreserva", situacao)) // situação da reserva
+                .add(Restrictions.eq("tiporeserva", situacao)) // situação da reserva
                 .add(Restrictions.isNull("dataLimite")) // data limite igual a null
                 .addOrder(Order.asc("dataReserva")); // ordena pela data de reserva
         InterfaceDAO<Reserva> reservaDAO = new HibernateDAO<Reserva>(Reserva.class, FacesContextUtil.getRequestSession());
@@ -81,7 +81,7 @@ public class MbEmprestimo implements Serializable{
         TipoReserva situacao = situacaoDAO.getEntity(TipoReserva.PENDENTE);
         DetachedCriteria criteria = DetachedCriteria.forClass(Reserva.class);
         criteria.add(Restrictions.eq("obra", exAux.getObra())) // determina obra
-                .add(Restrictions.eq("situacaoreserva", situacao)) // situação da reserva Pendente
+                .add(Restrictions.eq("tiporeserva", situacao)) // situação da reserva Pendente
                 .add(Restrictions.eq("exemplar", exAux.getIdExemplar())) // exemplar
                 .addOrder(Order.asc("dataReserva")); // ordena pela data de reserva
         InterfaceDAO<Reserva> reservaDAO = new HibernateDAO<Reserva>(Reserva.class, FacesContextUtil.getRequestSession());

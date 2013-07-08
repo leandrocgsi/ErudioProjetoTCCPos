@@ -40,7 +40,7 @@ public class MbReserva {
         TipoReserva situacao = situacaoDAO.getEntity(TipoReserva.PENDENTE);
         DetachedCriteria criteria = DetachedCriteria.forClass(Reserva.class);
         criteria.add(Restrictions.eq("obra", obra))
-                .add(Restrictions.eq("situacaoreserva", situacao));
+                .add(Restrictions.eq("tiporeserva", situacao));
         InterfaceDAO<Reserva> reservaDAO = new HibernateDAO<Reserva>(Reserva.class, FacesContextUtil.getRequestSession());
         List<Reserva> reservasObra = reservaDAO.getListByDetachedCriteria(criteria);
         
@@ -81,7 +81,7 @@ public class MbReserva {
         DetachedCriteria criteria = DetachedCriteria.forClass(Reserva.class);
         criteria.add(Restrictions.eq("obra", obra))
                 .add(Restrictions.eq("usuario", usuario))
-                .add(Restrictions.eq("situacaoreserva", situacao));
+                .add(Restrictions.eq("tiporeserva", situacao));
         InterfaceDAO<Reserva> reservaDAO = new HibernateDAO<Reserva>(Reserva.class, FacesContextUtil.getRequestSession());
         List<Reserva> reservasObra = reservaDAO.getListByDetachedCriteria(criteria);
         if(reservasObra == null || reservasObra.isEmpty()){

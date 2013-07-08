@@ -66,3 +66,5 @@ INSERT INTO `tipologradouro` (`IdTipoLogradouro`,`DescricaoTipoLogradouro`) VALU
  (7,'PRAÇA');
 INSERT INTO `pessoa` (`IdPessoa`,`DataDeNascimentoFundacao`,`DataDeCadastro`,`Email`,`NomeRazaoSocial`,`Telefone`,`IdSexo`,`Login`,`Permissao`,`Senha`,`TipoPessoa`) VALUES
  (1,'2013-01-12','2013-01-12','palger@live.com','LEANDRO DA COSTA GONÇALVES','(11) 1111-1111',1,'admin','ROLE_ADMIN','d033e22ae348aeb5660fc2140aec35850c4da997','F');
+create view etiqueta as select obra_titulo.Titulo, exemplar_idexemplar.IdExemplar from obra as obra_titulo inner join exemplar as exemplar_idexemplar on obra_titulo.IdObra = exemplar_idexemplar.IdObra;
+create view lombada as select exemplar_idexemplar.IdExemplar, obra_notacao.NotacaoDeArea, obra_notacao.NotacaoDeAutor from exemplar as exemplar_idexemplar inner join obra as obra_notacao on obra_notacao.IdObra = exemplar_idexemplar.IdObra;
