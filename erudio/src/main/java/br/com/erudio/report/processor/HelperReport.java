@@ -49,8 +49,7 @@ public class HelperReport implements Serializable {
             HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
             ServletOutputStream responseStream = response.getOutputStream();
             System.out.println("Caminho do .jrxml.:" + atualDir);
-            String caminhojrxml = atualDir + nomeJRXML;            
-            //String caminhojrxml = "D:/Work Area Training/ErudioProjetoTCCPos/erudio/src/main/java/br/com/erudio/model/report/templates/" + nomeJRXML;            
+            String caminhojrxml = atualDir + nomeJRXML;                  
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", "attachment; filename=\"" + nomeDeDestino + "." + formato + "\"");
             JasperReport jasper = JasperCompileManager.compileReport(caminhojrxml);

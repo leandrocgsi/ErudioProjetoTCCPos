@@ -63,8 +63,8 @@
                         <p:menuitem value="Consulta" url="/restrict/consultarobras.faces"/>                      
                     </p:submenu>
                     <p:submenu label="Emissão de Etiquetas">
-                        <p:menuitem value="Código de Barras"  action="#{mbReportEtiqueta.makeReportVEtiqueta}" ajax="false"/>
-                        <p:menuitem value="Lombada" url="#"/>                        
+                        <p:menuitem value="Código de Barras" action="#{mbReportEtiqueta.makeReportVEtiqueta}" ajax="false"/>
+                        <p:menuitem value="Lombada" action="#{mbReportEtiquetaDeLombada.makeReportVLombada}" ajax="false"/>                        
                     </p:submenu>
                 </p:menubar> 
             </h:form>           

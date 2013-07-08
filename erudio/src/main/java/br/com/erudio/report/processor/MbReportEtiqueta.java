@@ -29,6 +29,6 @@ public class MbReportEtiqueta implements Serializable {
     } 
 
     public void makeReportVEtiqueta(){    
-        helperReport.makeReport(stringQuery, "etiquetas.jrxml", null, "teste", hash, "pdf", etiquetaDAO());
+        helperReport.makeReport(stringQuery, "etiquetas.jrxml", null, "codigo_de_barras", hash, "pdf", etiquetaDAO());
     }
 }
