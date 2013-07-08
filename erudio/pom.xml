@@ -513,7 +513,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.8.0</version>
+            <version>1.8.3</version>
         </dependency>
 
         <!-- ########## COMMONS-DIGESTER ########## -->
@@ -538,8 +538,7 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.0.4</version>
-
+            <version>1.1.1</version>
         </dependency>
                 
         <!-- ############## GROOVY-ALL ############# -->
@@ -547,18 +546,14 @@
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>${groovy-all.version}</version>
-
-            <optional>true</optional>
-        </dependency> 
+        </dependency>
         
         <!-- ############ JASPER REPORTS ########### -->
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
-            <version>4.0.0</version>
-            <type>jar</type>
-
-            <exclusions>
+            <version>5.0.1</version>
+                 <exclusions>
                 <exclusion>
                     <groupId>xml-apis</groupId>
                     <artifactId>xml-apis</artifactId>
@@ -582,11 +577,7 @@
             </exclusions> 
         </dependency>
         
-        <!-- ################# FONT ################ -->
-        <!--  É APENAS FONTES ESSA BAGAÇA  -->
-        
         <!-- ################# ITEXT ############### -->
-        
         <dependency>
             <groupId>com.lowagie</groupId>
             <artifactId>itext</artifactId>
@@ -635,7 +626,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-            
+        
         <!-- ############### BARBECUE ############## -->
         <dependency>
             <groupId>net.sourceforge.barbecue</groupId>
@@ -661,9 +652,6 @@
                 </exclusion>
             </exclusions>            
         </dependency>
-                
-        <!-- ######### JASPER REPORTS FONTS ######## -->
-        <!--  É APENAS FONTES ESSA BAGAÇA  -->
         
         <!-- ################ XALAN ################ -->
         <dependency>
@@ -684,12 +672,10 @@
         </dependency>  
         
         <!-- ############# APACHE-POI ############## -->
-
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.6</version>
-            <optional>true</optional>
+            <version>3.9</version>            
         </dependency>  
         
         <!-- ||||||| DEPENDÊNCIAS DO J-UNIT |||||||| -->        
@@ -699,7 +685,7 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-        
+
     </dependencies>
 
     <build>
