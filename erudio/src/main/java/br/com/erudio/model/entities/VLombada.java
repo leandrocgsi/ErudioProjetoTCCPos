@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "lombada", catalog = "erudio")
+@Table(name = "lombada")
 public class VLombada implements Serializable {
 
     private static final long serialVersionUID = 1L;

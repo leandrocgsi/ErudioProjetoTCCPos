@@ -509,14 +509,14 @@
         
         <!-- DEPENDÊNCIAS PARA EMISSÃO DE RELATÓRIOS -->
         
-        <!-- ########## COMMONS-BEANUTILS ########## -->
+        <!-- ########## COMMONS-BEANUTILS ########## 
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.8.3</version>
-        </dependency>
+        </dependency> -->
 
-        <!-- ########## COMMONS-DIGESTER ########## -->
+        <!-- ########## COMMONS-DIGESTER ########## 
         <dependency>
             <groupId>commons-digester</groupId>
             <artifactId>commons-digester</artifactId>
@@ -532,21 +532,21 @@
                     <groupId>commons-collections</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency> -->
         
-        <!-- ########## COMMONS-LOGGING ########## -->
+        <!-- ########## COMMONS-LOGGING ########## 
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.1.1</version>
-        </dependency>
+        </dependency> -->
                 
         <!-- ############## GROOVY-ALL ############# -->
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>${groovy-all.version}</version>
-        </dependency>
+        </dependency> 
         
         <!-- ############ JASPER REPORTS ########### -->
         <dependency>
@@ -558,10 +558,7 @@
                     <groupId>xml-apis</groupId>
                     <artifactId>xml-apis</artifactId>
                 </exclusion>
-                <exclusion>
-                    <artifactId>commons-collections</artifactId>
-                    <groupId>commons-collections</groupId>
-                </exclusion>
+                
                 <exclusion>
                     <artifactId>jcommon</artifactId>
                     <groupId>jfree</groupId>
