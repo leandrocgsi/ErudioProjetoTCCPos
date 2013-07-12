@@ -13,29 +13,32 @@ public class VEtiqueta implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Column(name = "obraTitulo")
-    private String obraTitulo;
-    @Column(name = "exemplarIdExemplar")
-    private Integer exemplaridexemplar;
+    @Column(name = "Titulo")
+    private String titulo;
+    @Column(name = "IdExemplar")
+    private Integer idExemplar;
 
-    public String getobraTitulo() {
-        return obraTitulo;
+    public Integer getIdExemplar() {
+        return idExemplar;
     }
 
-    public Integer getExemplaridexemplar() {
-        return exemplaridexemplar;
+    public void setIdExemplar(Integer idExemplar) {
+        this.idExemplar = idExemplar;
     }
 
-    public void setExemplaridexemplar(Integer exemplaridexemplar) {
-        this.exemplaridexemplar = exemplaridexemplar;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public String getObratitulo() {
-        return obraTitulo;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public void setObratitulo(String obratitulo) {
-        this.obraTitulo = obratitulo;
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + (this.idExemplar != null ? this.idExemplar.hashCode() : 0);
+        return hash;
     }
 
     @Override
@@ -47,16 +50,10 @@ public class VEtiqueta implements Serializable {
             return false;
         }
         final VEtiqueta other = (VEtiqueta) obj;
-        if ((this.obraTitulo == null) ? (other.obraTitulo != null) : !this.obraTitulo.equals(other.obraTitulo)) {
+        if (this.idExemplar != other.idExemplar && (this.idExemplar == null || !this.idExemplar.equals(other.idExemplar))) {
             return false;
         }
         return true;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + (this.obraTitulo != null ? this.obraTitulo.hashCode() : 0);
-        return hash;
-    }
+   
 }
