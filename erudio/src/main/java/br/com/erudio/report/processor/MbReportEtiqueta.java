@@ -2,7 +2,7 @@ package br.com.erudio.report.processor;
 
 import br.com.erudio.model.dao.HibernateDAO;
 import br.com.erudio.model.dao.InterfaceDAO;
-import br.com.erudio.model.entities.VEtiqueta;
+import br.com.erudio.model.entities.Etiqueta;
 import br.com.erudio.util.FacesContextUtil;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -18,10 +18,10 @@ public class MbReportEtiqueta implements Serializable {
     HelperReport helperReport = new HelperReport();        
     HashMap hash = new HashMap();
     
-    private String stringQuery = "from VEtiqueta";
+    private String stringQuery = "from Etiqueta";
     
-    private InterfaceDAO<VEtiqueta> etiquetaDAO() {
-        InterfaceDAO<VEtiqueta> reportDAO = new HibernateDAO<VEtiqueta>(VEtiqueta.class, FacesContextUtil.getRequestSession());
+    private InterfaceDAO<Etiqueta> etiquetaDAO() {
+        InterfaceDAO<Etiqueta> reportDAO = new HibernateDAO<Etiqueta>(Etiqueta.class, FacesContextUtil.getRequestSession());
         return reportDAO;
     }
     
@@ -29,6 +29,6 @@ public class MbReportEtiqueta implements Serializable {
     } 
 
     public void makeReportVEtiqueta(){    
-        helperReport.makeReport(stringQuery, "etiquetas.jrxml", null, "codigo_de_barras", hash, "pdf", etiquetaDAO());
+        helperReport.makeReport(stringQuery, "etiquetas.jrxml", null, "barras", null, "pdf", etiquetaDAO());
     }
 }

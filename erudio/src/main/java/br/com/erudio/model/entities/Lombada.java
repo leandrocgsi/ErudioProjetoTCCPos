@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "lombada")
-public class VLombada implements Serializable {
+public class Lombada implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -19,7 +19,7 @@ public class VLombada implements Serializable {
     @Column(name = "NotacaoDeAutor")
     private String notacaoDeAutor;
 
-    public VLombada() {
+    public Lombada() {
     }
 
     public Integer getIdExemplar() {
@@ -61,7 +61,7 @@ public class VLombada implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final VLombada other = (VLombada) obj;
+        final Lombada other = (Lombada) obj;
         if (this.idExemplar != other.idExemplar && (this.idExemplar == null || !this.idExemplar.equals(other.idExemplar))) {
             return false;
         }

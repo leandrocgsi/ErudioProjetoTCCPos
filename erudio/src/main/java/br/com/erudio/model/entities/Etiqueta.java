@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "etiqueta")
-public class VEtiqueta implements Serializable {
+public class Etiqueta implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
@@ -49,7 +49,7 @@ public class VEtiqueta implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final VEtiqueta other = (VEtiqueta) obj;
+        final Etiqueta other = (Etiqueta) obj;
         if (this.idExemplar != other.idExemplar && (this.idExemplar == null || !this.idExemplar.equals(other.idExemplar))) {
             return false;
         }

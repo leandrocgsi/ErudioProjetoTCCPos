@@ -62,7 +62,7 @@
         <mapping class="br.com.erudio.model.entities.TipoReserva"/>
         <mapping class="br.com.erudio.model.entities.Titulacao"/>
         <mapping class="br.com.erudio.model.entities.Turno"/>
-        <mapping class="br.com.erudio.model.entities.VEtiqueta"/>
-        <mapping class="br.com.erudio.model.entities.VLombada"/>
+        <mapping class="br.com.erudio.model.entities.Etiqueta"/>
+        <mapping class="br.com.erudio.model.entities.Lombada"/>
     </session-factory>
 </hibernate-configuration>
