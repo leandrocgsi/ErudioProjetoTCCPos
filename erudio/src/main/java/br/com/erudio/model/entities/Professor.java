@@ -19,7 +19,9 @@ public class Professor extends Pessoa {
     @ForeignKey(name = "ProfessorVinculoProfessor") 
     private List<ProfessorVinculo> professorvinculos;
 
-    public Professor() {}
+    public Professor() {
+        this.titulacao = new Titulacao();
+    }
 
     public Titulacao getTitulacao() {
         return titulacao;
