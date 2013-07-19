@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetas" language="groovy" columnCount="5" printOrder="Horizontal" pageWidth="555" pageHeight="802" columnWidth="111" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2410537a-1e67-4c6c-b28c-25e831e950b6">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetas" language="java" columnCount="5" printOrder="Horizontal" pageWidth="555" pageHeight="802" columnWidth="111" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select exemplar_idexemplar.IdExemplar, obra_notacao.NotacaoDeArea, obra_notacao.NotacaoDeAutor from exemplar as exemplar_idexemplar inner join obra as obra_notacao on obra_notacao.IdObra = exemplar_idexemplar.IdObra;]]>
+		<![CDATA[select * from lombada;]]>
 	</queryString>
-	<field name="IdExemplar" class="java.lang.Integer">
+	<field name="idexemplar" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="NotacaoDeArea" class="java.lang.String">
+	<field name="notacaodearea" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="NotacaoDeAutor" class="java.lang.String">
+	<field name="notacaodeautor" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<detail>
-		<band height="67" splitType="Stretch">
-			<textField>
-				<reportElement uuid="1699fa13-3da4-48d5-aa8b-356bbb298775" x="6" y="2" width="100" height="20"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{NotacaoDeArea}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="471637cb-d877-4fae-bfe7-ac96c682d07f" x="6" y="22" width="100" height="20"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{NotacaoDeAutor}]]></textFieldExpression>
-			</textField>
+		<band height="75" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="9e5c4506-198e-4058-8b87-a803ed669dca" x="6" y="42" width="19" height="20"/>
-				<textElement/>
+				<reportElement x="6" y="47" width="31" height="20"/>
+				<textElement lineSpacing="Single"/>
 				<text><![CDATA[Ex.:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="8437530a-9a5f-4402-975f-3a90ec680295" x="25" y="42" width="81" height="20"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{IdExemplar}]]></textFieldExpression>
+				<reportElement x="37" y="47" width="69" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{idexemplar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="26" width="100" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{notacaodeautor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="4" width="100" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{notacaodearea}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

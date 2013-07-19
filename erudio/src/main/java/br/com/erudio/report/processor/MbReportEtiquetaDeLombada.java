@@ -29,6 +29,6 @@ public class MbReportEtiquetaDeLombada implements Serializable {
     } 
 
     public void makeReportVLombada(){    
-        helperReport.makeReport(stringQuery, "lombada.jrxml", null, "etiquetas_de_lombada", hash, "pdf", etiquetaDAO());
+        helperReport.makeReport(stringQuery, "lombada.jrxml", null, "lombada", null, "pdf", etiquetaDAO());
     }
 }

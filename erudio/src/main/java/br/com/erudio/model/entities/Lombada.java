@@ -12,30 +12,30 @@ public class Lombada implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "IdExemplar")
-    private Integer idExemplar;
-    @Column(name = "NotacaoDeArea")
-    private String notacaoDeArea;
-    @Column(name = "NotacaoDeAutor")
+    @Column(name = "idexemplar")
+    private Integer idexemplar;
+    @Column(name = "notacaodearea")
+    private String notacaodearea;
+    @Column(name = "notacaodeautor")
     private String notacaoDeAutor;
 
     public Lombada() {
     }
 
-    public Integer getIdExemplar() {
-        return idExemplar;
+    public Integer getIdexemplar() {
+        return idexemplar;
     }
 
-    public void setIdExemplar(Integer idExemplar) {
-        this.idExemplar = idExemplar;
+    public void setIdexemplar(Integer idexemplar) {
+        this.idexemplar = idexemplar;
     }
 
-    public String getNotacaoDeArea() {
-        return notacaoDeArea;
+    public String getNotacaodearea() {
+        return notacaodearea;
     }
 
-    public void setNotacaoDeArea(String notacaoDeArea) {
-        this.notacaoDeArea = notacaoDeArea;
+    public void setNotacaodearea(String notacaodearea) {
+        this.notacaodearea = notacaodearea;
     }
 
     public String getNotacaoDeAutor() {
@@ -49,7 +49,7 @@ public class Lombada implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 31 * hash + (this.idExemplar != null ? this.idExemplar.hashCode() : 0);
+        hash = 59 * hash + (this.idexemplar != null ? this.idexemplar.hashCode() : 0);
         return hash;
     }
 
@@ -62,9 +62,11 @@ public class Lombada implements Serializable {
             return false;
         }
         final Lombada other = (Lombada) obj;
-        if (this.idExemplar != other.idExemplar && (this.idExemplar == null || !this.idExemplar.equals(other.idExemplar))) {
+        if (this.idexemplar != other.idexemplar && (this.idexemplar == null || !this.idexemplar.equals(other.idexemplar))) {
             return false;
         }
         return true;
     }
+
+    
 }

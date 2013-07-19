@@ -13,18 +13,20 @@ public class Etiqueta implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Column(name = "Titulo")
+    @Column(name = "titulo")
     private String titulo;
-    @Column(name = "IdExemplar")
-    private Integer idExemplar;
+    @Column(name = "idexemplar")
+    private Integer idexemplar;
 
-    public Integer getIdExemplar() {
-        return idExemplar;
+    public Integer getIdexemplar() {
+        return idexemplar;
     }
 
-    public void setIdExemplar(Integer idExemplar) {
-        this.idExemplar = idExemplar;
+    public void setIdexemplar(Integer idexemplar) {
+        this.idexemplar = idexemplar;
     }
+
+    
 
     public String getTitulo() {
         return titulo;
@@ -36,8 +38,8 @@ public class Etiqueta implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + (this.idExemplar != null ? this.idExemplar.hashCode() : 0);
+        int hash = 7;
+        hash = 29 * hash + (this.idexemplar != null ? this.idexemplar.hashCode() : 0);
         return hash;
     }
 
@@ -50,10 +52,12 @@ public class Etiqueta implements Serializable {
             return false;
         }
         final Etiqueta other = (Etiqueta) obj;
-        if (this.idExemplar != other.idExemplar && (this.idExemplar == null || !this.idExemplar.equals(other.idExemplar))) {
+        if (this.idexemplar != other.idexemplar && (this.idexemplar == null || !this.idexemplar.equals(other.idexemplar))) {
             return false;
         }
         return true;
     }
+
+    
    
 }
