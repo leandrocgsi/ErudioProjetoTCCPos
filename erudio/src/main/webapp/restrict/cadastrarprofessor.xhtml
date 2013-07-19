@@ -130,28 +130,26 @@
                         </p:panel>
                     </p:tab>
 
-                    <ui:remove><p:tab title="Informações da Matrícula" id="infoMatricula">
+                    <p:tab title="Informações da Matrícula" id="infoMatricula">
                         <p:panel header="Informações da Matrícula">
                             <p:growl id="msg2"/>
                             <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid2">
 
                                 <h:outputLabel for="curso" value="Curso.:" />
-                                <p:selectOneMenu id="curso" value="#{mbProfessor.matricula.curso.idCurso}">
+                                <p:selectOneMenu id="curso" value="#{mbProfessor.professorVinculo.curso.idCurso}">
                                     <f:selectItems value="#{bbCurso.cursos}" var="cursos"
                                                    itemValue="#{cursos.idCurso}" itemLabel="#{cursos.nome}"/>
                                 </p:selectOneMenu>
-
-                                <h:outputLabel for="modulo" value="Módulo.:" />
-                                <p:selectOneMenu id="modulo" value="#{mbProfessor.matricula.modulo.idModulo}">
-                                    <f:selectItems value="#{bbModulo.modulos}" var="modulos"
-                                                   itemValue="#{modulos.idModulo}" itemLabel="#{modulos.descricao}"/>
-                                </p:selectOneMenu>
-
-                                <h:outputLabel for="periodoLetivo" value="Período Letivo.:" />
-                                <p:selectOneMenu id="periodoLetivo" value="#{mbProfessor.matricula.periodoletivo.idPeriodoLetivo}">
-                                    <f:selectItems value="#{bbPeriodoLetivo.periodoLetivos}" var="periodoLetivos"
-                                                   itemValue="#{periodoLetivos.idPeriodoLetivo}" itemLabel="#{periodoLetivos.descricao}"/>
-                                </p:selectOneMenu>
+                                
+                                <h:outputLabel for="dataInicio" value="Data de Início.:"/>
+                                <p:calendar id="dataInicio" value="#{mbProfessor.professorVinculo.dataInicio}"
+                                            required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
+                                            locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
+                                
+                                <h:outputLabel for="dataFim" value="Data de Saída.:"/>
+                                <p:calendar id="dataFim" value="#{mbProfessor.professorVinculo.dataFim}"
+                                            required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
+                                            locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
 
                                 <h:outputLabel/>
                                 <p:panel>
@@ -162,7 +160,7 @@
                                 </p:panel>
                             </h:panelGrid>
                         </p:panel>
-                    </p:tab></ui:remove>
+                    </p:tab>
                 </p:wizard>
             </h:form>
         </p:fieldset>

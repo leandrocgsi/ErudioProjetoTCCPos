@@ -39,7 +39,9 @@ public class ProfessorVinculo implements Serializable {
     @JoinColumn(name="IdPessoa", referencedColumnName = "IdPessoa")
     private Professor professor;
 
-    public ProfessorVinculo() {}
+    public ProfessorVinculo() {
+        this.curso =new Curso();
+    }
 
     public Integer getIdProfessorVinculo() {
         return idProfessorVinculo;

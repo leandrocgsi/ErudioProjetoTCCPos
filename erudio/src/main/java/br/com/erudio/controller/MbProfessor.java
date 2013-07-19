@@ -5,7 +5,8 @@ import br.com.erudio.model.dao.HibernateDAO;
 import br.com.erudio.model.dao.InterfaceDAO;
 import br.com.erudio.model.entities.Endereco;
 import br.com.erudio.model.entities.Professor;
-import br.com.erudio.model.entities.Matricula;
+import br.com.erudio.model.entities.ProfessorVinculo;
+import br.com.erudio.model.entities.ProfessorVinculo;
 import br.com.erudio.util.FacesContextUtil;
 import java.io.Serializable;
 import java.util.Date;
@@ -25,9 +26,11 @@ public class MbProfessor implements Serializable {
     
     private Professor professor = new Professor();
     private Endereco endereco = new Endereco();
+    private ProfessorVinculo professorVinculo = new ProfessorVinculo();
 
     private List<Professor> professors;
     private List<Endereco> enderecos;
+    private List<ProfessorVinculo> professorVinculos;
 
     
     public MbProfessor() {}
@@ -42,14 +45,15 @@ public class MbProfessor implements Serializable {
         return enderecoDAO;
     }
     
-    private InterfaceDAO<Matricula> matriculaDAO(){
-        InterfaceDAO<Matricula> matriculaDAO = new HibernateDAO<Matricula>(Matricula.class, FacesContextUtil.getRequestSession());
-        return matriculaDAO;
+    private InterfaceDAO<ProfessorVinculo> professorVinculoDAO(){
+        InterfaceDAO<ProfessorVinculo> professorVinculoDAO = new HibernateDAO<ProfessorVinculo>(ProfessorVinculo.class, FacesContextUtil.getRequestSession());
+        return professorVinculoDAO;
     }
     
     public String limpProfessor() {
         professor = new Professor();
         endereco = new Endereco();
+        professorVinculo = new ProfessorVinculo();
         return editProfessor();
     }
 
@@ -71,10 +75,12 @@ public class MbProfessor implements Serializable {
     private void insertProfessor() {
         professor.setSenha(ConverterSHA1.cipher(professor.getSenha()));
         if (professor.getSenha() == null ? confereSenha == null : professor.getSenha().equals(ConverterSHA1.cipher(confereSenha))) {
-            professor.setPermissao("ROLE_ALUNO");
+            professor.setPermissao("ROLE_PROFESSOR");
             pessoaDAO().save(professor);
             endereco.setPessoa(professor);            
             enderecoDAO().save(endereco);                       
+            professorVinculo.setProfessor(professor);            
+            professorVinculoDAO().save(professorVinculo);                       
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
         } else {
@@ -85,7 +91,8 @@ public class MbProfessor implements Serializable {
 
     private void updateProfessor() {
         pessoaDAO().update(professor);
-        enderecoDAO().update(endereco);        
+        enderecoDAO().update(endereco);     
+        professorVinculoDAO().update(professorVinculo);  
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso", ""));
     }
@@ -93,6 +100,7 @@ public class MbProfessor implements Serializable {
     public String deleteProfessor() {
         pessoaDAO().remove(professor);
         enderecoDAO().remove(endereco);
+        professorVinculoDAO().remove(professorVinculo); 
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro excluído com sucesso", ""));
         return null;
@@ -116,6 +124,15 @@ public class MbProfessor implements Serializable {
         this.enderecos = enderecos;
     }
 
+    public List<ProfessorVinculo> getProfessorVinculos() {
+        professorVinculos = professorVinculoDAO().getEntities();
+        return professorVinculos;
+    }
+
+    public void setProfessorVinculos(List<ProfessorVinculo> professorVinculos) {
+        this.professorVinculos = professorVinculos;
+    }
+
     public Professor getProfessor() {
         return professor;
     }
@@ -132,6 +149,14 @@ public class MbProfessor implements Serializable {
         this.endereco = endereco;
     }
 
+    public ProfessorVinculo getProfessorVinculo() {
+        return professorVinculo;
+    }
+
+    public void setProfessorVinculo(ProfessorVinculo professorVinculo) {
+        this.professorVinculo = professorVinculo;
+    }
+    
     public String getConfereSenha() {
         return confereSenha;
     }
