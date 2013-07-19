@@ -140,12 +140,12 @@
                                     <f:selectItems value="#{bbCurso.cursos}" var="cursos"
                                                    itemValue="#{cursos.idCurso}" itemLabel="#{cursos.nome}"/>
                                 </p:selectOneMenu>
-                                
+
                                 <h:outputLabel for="dataInicio" value="Data de Início.:"/>
                                 <p:calendar id="dataInicio" value="#{mbProfessor.professorVinculo.dataInicio}"
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
                                             locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
-                                
+
                                 <h:outputLabel for="dataFim" value="Data de Saída.:"/>
                                 <p:calendar id="dataFim" value="#{mbProfessor.professorVinculo.dataFim}"
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
@@ -161,7 +161,7 @@
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
-                </p:wizard>
+                </p:wizard>                
             </h:form>
         </p:fieldset>
     </ui:define>

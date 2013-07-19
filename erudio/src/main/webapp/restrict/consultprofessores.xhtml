@@ -51,8 +51,8 @@
                         <h:outputText value="Ações"/>
                     </f:facet>
                     <p:commandButton action="#{mbProfessor.editProfessor}"
-                        value="Editar" image="ui-icon ui-icon-pencil"
-                        update="@form" ajax="false">
+                                     value="Editar" image="ui-icon ui-icon-pencil"
+                                     update="@form" ajax="false">
                         <f:setPropertyActionListener value="#{professor}" target="#{mbProfessor.professor}"/>
                         <f:setPropertyActionListener value="#{professor.idPessoa}" target="#{mbProfessor.professor.idPessoa}"/>
                         <f:setPropertyActionListener value="#{professor.endereco}" target="#{mbProfessor.endereco}"/>
@@ -61,14 +61,41 @@
                         <f:setPropertyActionListener value="#{professor.endereco.tipoendereco.idTipoEndereco}" target="#{mbProfessor.endereco.tipoendereco.idTipoEndereco}"/>
                         <f:setPropertyActionListener value="#{professor.endereco.tipologradouro.idTipoLogradouro}" target="#{mbProfessor.endereco.tipologradouro.idTipoLogradouro}"/>
                     </p:commandButton>
-                    
+
                     <p:commandButton value="Cancelar" action="#{mbProfessor.limpProfessor}"
                                      image="ui-icon ui-icon-close" update="@form"/>
 
                 </p:column>
 
             </p:dataTable>
+
+            <h:panelGrid columns="2">  
+                <p:panel header="Exportar Todos os Dados">  
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/excel.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="xls" target="idTabela" fileName="professores"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/pdf.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="pdf" target="idTabela" fileName="professores"/>  
+                    </h:commandLink>                      
+                </p:panel>  
+
+                <p:panel header="Exportar os Dados Desta Página">  
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/excel.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="xls" target="idTabela" fileName="professores" pageOnly="true"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/pdf.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="pdf" target="idTabela" fileName="professores" pageOnly="true"/>  
+                    </h:commandLink>                     
+                </p:panel>  
+            </h:panelGrid>
         </h:form>
+
     </ui:define>
 
 </ui:composition>

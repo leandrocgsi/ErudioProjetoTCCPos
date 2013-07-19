@@ -51,8 +51,8 @@
                         <h:outputText value="Ações"/>
                     </f:facet>
                     <p:commandButton action="#{mbAluno.editAluno}"
-                        value="Editar" image="ui-icon ui-icon-pencil"
-                        update="@form" ajax="false">
+                                     value="Editar" image="ui-icon ui-icon-pencil"
+                                     update="@form" ajax="false">
                         <f:setPropertyActionListener value="#{aluno}" target="#{mbAluno.aluno}"/>
                         <f:setPropertyActionListener value="#{aluno.idPessoa}" target="#{mbAluno.aluno.idPessoa}"/>
                         <f:setPropertyActionListener value="#{aluno.endereco}" target="#{mbAluno.endereco}"/>
@@ -61,13 +61,39 @@
                         <f:setPropertyActionListener value="#{aluno.endereco.tipoendereco.idTipoEndereco}" target="#{mbAluno.endereco.tipoendereco.idTipoEndereco}"/>
                         <f:setPropertyActionListener value="#{aluno.endereco.tipologradouro.idTipoLogradouro}" target="#{mbAluno.endereco.tipologradouro.idTipoLogradouro}"/>
                     </p:commandButton>
-                    
+
                     <p:commandButton value="Cancelar" action="#{mbAluno.limpAluno}"
                                      image="ui-icon ui-icon-close" update="@form"/>
 
                 </p:column>
 
             </p:dataTable>
+
+            <h:panelGrid columns="2">  
+                <p:panel header="Exportar Todos os Dados">  
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/excel.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="xls" target="idTabela" fileName="alunos"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/pdf.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="pdf" target="idTabela" fileName="alunos"/>  
+                    </h:commandLink>                      
+                </p:panel>  
+
+                <p:panel header="Exportar os Dados Desta Página">  
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/excel.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="xls" target="idTabela" fileName="alunos" pageOnly="true"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/pdf.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="pdf" target="idTabela" fileName="alunos" pageOnly="true"/>  
+                    </h:commandLink>                     
+                </p:panel>  
+            </h:panelGrid>
         </h:form>
     </ui:define>
 
