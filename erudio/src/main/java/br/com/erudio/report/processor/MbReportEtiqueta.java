@@ -1,29 +1,34 @@
 package br.com.erudio.report.processor;
 
-import br.com.erudio.report.templates.HelperResponseStream;
-import java.io.File;
-import java.io.IOException;
+import br.com.erudio.model.dao.HibernateDAO;
+import br.com.erudio.model.dao.InterfaceDAO;
+import br.com.erudio.model.entities.Etiqueta;
+import br.com.erudio.util.FacesContextUtil;
 import java.io.Serializable;
+import java.util.HashMap;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 
 @ManagedBean(name="mbReportEtiqueta")
 @RequestScoped
 public class MbReportEtiqueta implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
-    String atualDir = FacesContext.getCurrentInstance().getExternalContext().getRealPath("../../")
-            + "/src/main/java/br/com/erudio/report/templates/";
-    String mimeType = "application/pdf";
-    String nameOfFile = "capa.pdf";
-    HelperResponseStream helperResponseStream = new HelperResponseStream();
-       
+        
+    HelperReport helperReport = new HelperReport();        
+    HashMap hash = new HashMap();
+    
+    private String stringQuery = "from Etiqueta";
+    
+    private InterfaceDAO<Etiqueta> etiquetaDAO() {
+        InterfaceDAO<Etiqueta> reportDAO = new HibernateDAO<Etiqueta>(Etiqueta.class, FacesContextUtil.getRequestSession());
+        return reportDAO;
+    }
+    
     public MbReportEtiqueta() {        
     } 
 
-    public void makeReportVEtiqueta() throws IOException{   
-        HelperResponseStream.readerFile("capa.pdf", atualDir, new File(atualDir+nameOfFile));
+    public void makeReportVEtiqueta(){    
+        helperReport.makeReport(stringQuery, "etiquetas.jrxml", null, "barras", null, "pdf", etiquetaDAO());
     }
-    
 }
