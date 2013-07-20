@@ -23,7 +23,7 @@ public class MbReportEtiqueta implements Serializable {
     } 
 
     public void makeReportVEtiqueta() throws IOException{   
-        HelperResponseStream.readerFile("capa", atualDir, new File(atualDir+nameOfFile));
+        HelperResponseStream.readerFile("capa.pdf", atualDir, new File(atualDir+nameOfFile));
     }
     
 }

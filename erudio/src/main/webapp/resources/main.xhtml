@@ -6,7 +6,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui"
-      ><!-- xmlns:sec="http://www.springframework.org/security/facelets/tags" -->
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      >
 
     <h:head>
         <title>Erudio - Sistema de Gestão de Bibliotecas</title>
@@ -38,34 +39,38 @@
             <h:form>    
                 <p:menubar styleClass="labelmenu">
 
-                    <p:submenu label="Cadastros">  
+                    <p:submenu label="Cadastros" rendered="#{sec:ifAnyGranted('ROLE_ADMIN, ROLE_FUNCIONARIO')}">  
                         <p:menuitem value="Cidades" url="/restrict/cadastrarcidade.faces"/>                        
                         <p:menuitem value="Alunos" action="#{mbAluno.limpAluno}" ajax="false"/>                        
                         <p:menuitem value="Funcionários" action="#{mbFuncionario.limpFuncionario}" ajax="false"/>                        
                         <p:menuitem value="Professores" action="#{mbProfessor.limpProfessor}" ajax="false"/>                        
                     </p:submenu> 
-                    <p:submenu label="Consultas">  
+                    <p:submenu label="Consultas" rendered="#{sec:ifAnyGranted('ROLE_ADMIN, ROLE_FUNCIONARIO')}">  
                         <p:menuitem value="Alunos" url="/restrict/consultaralunos.faces"/>  
                         <p:menuitem value="Funcionarios" url="/restrict/consultarfuncionarios.faces"/>  
                         <p:menuitem value="Professores" url="/restrict/consultprofessores.faces"/>  
                     </p:submenu>   
-                    <p:submenu label="Acadêmico">
+                    <p:submenu label="Acadêmico" rendered="#{sec:ifAnyGranted('ROLE_ADMIN, ROLE_FUNCIONARIO')}">
                         <p:menuitem value="Cadastrar Cursos" url="/restrict/cadastrarcurso.faces"/>                        
                     </p:submenu>
-                    <p:submenu label="Biblioteca">
+                    <p:submenu label="Biblioteca" rendered="#{sec:ifAnyGranted('ROLE_ADMIN, ROLE_FUNCIONARIO')}">
                         <p:menuitem value="Emprestimo" url="/restrict/efetuaremprestimo.faces"/>
                         <p:menuitem value="Devolução" url="/restrict/efetuardevolucao.faces"/>
                         <p:menuitem value="Reserva" url="/restrict/efetuarreserva.faces"/>                        
                         <p:menuitem value="Consultar Reservas" url="/restrict/consultarreservas.faces"/>                        
                         <p:menuitem value="Retirar Reserva" url="/restrict/confirmarreserva.faces"/>                        
                     </p:submenu>
-                    <p:submenu label="Obras">
+                    <p:submenu label="Obras" rendered="#{sec:ifAnyGranted('ROLE_ADMIN, ROLE_FUNCIONARIO')}">
                         <p:menuitem value="Cadastro" url="/restrict/cadastrarobra.faces"/>                      
                         <p:menuitem value="Consulta" url="/restrict/consultarobras.faces"/>                      
                     </p:submenu>
-                    <p:submenu label="Emissão de Etiquetas">
+                    <p:submenu label="Emissão de Etiquetas" rendered="#{sec:ifAnyGranted('ROLE_ADMIN, ROLE_FUNCIONARIO')}">
                         <p:menuitem value="Código de Barras" action="#{mbReportEtiqueta.makeReportVEtiqueta}" ajax="false"/>
                         <p:menuitem value="Lombada" action="#{mbReportEtiquetaDeLombada.makeReportVLombada}" ajax="false"/>                        
+                    </p:submenu>
+                    <p:submenu label="Consultar Meus Itens">
+                        <p:menuitem value="Empréstimos" url="/restrict/consultarmeusemprestimos.faces"/>                      
+                        <p:menuitem value="Reservas" url="/restrict/consultarminhasreservas.faces"/>                      
                     </p:submenu>
                 </p:menubar> 
             </h:form>           

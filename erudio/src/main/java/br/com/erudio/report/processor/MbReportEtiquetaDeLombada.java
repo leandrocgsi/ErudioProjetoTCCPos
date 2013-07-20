@@ -29,6 +29,6 @@ public class MbReportEtiquetaDeLombada implements Serializable {
     } 
 
     public void makeReportVLombada() throws IOException{   
-        HelperResponseStream.readerFile("lombada", atualDir, new File(atualDir+nameOfFile));
+        HelperResponseStream.readerFile("lombada.pdf", atualDir, new File(atualDir+nameOfFile));
     }
 }
