@@ -195,8 +195,7 @@ public class MbEmprestimo implements Serializable{
         // carrega o exemplar        
         InterfaceDAO<Exemplar> exemlarDAO = new HibernateDAO<Exemplar>(Exemplar.class, FacesContextUtil.getRequestSession());      
         DetachedCriteria criteria1 = DetachedCriteria.forClass(Exemplar.class);
-        criteria1.add(Restrictions.eq("idExemplar", idExemplar));
-        Exemplar exemplar = exemlarDAO.getEntity(criteria1);  
+        Exemplar exemplar = exemlarDAO.getEntityByHQLQuery("from Exemplar as e where e.idExemplar = " + idExemplar);  
         if(exemplar == null){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Material desconhecido!", ""));            
             return null;
