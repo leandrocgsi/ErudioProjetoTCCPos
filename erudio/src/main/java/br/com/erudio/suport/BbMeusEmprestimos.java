@@ -18,7 +18,7 @@ public class BbMeusEmprestimos implements Serializable {
     
     private Integer idPessoa = BbUsuarioLogado.procuraPessoa().getIdPessoa();
     
-    private String stringQuery = "from Eprestimo as f where f.usuario = " + idPessoa;
+    private String stringQuery = "from Emprestimo as f where f.usuario = " + idPessoa;
     
     public List<Emprestimo> getEmprestimos() {
         Session session = FacesContextUtil.getRequestSession();
