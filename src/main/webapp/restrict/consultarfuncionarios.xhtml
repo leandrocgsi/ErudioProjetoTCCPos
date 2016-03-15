@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../resources/main.xhtml">
+
+    <ui:define name="tarefas">
+        <h:form>
+            <p:growl id="msg0"/>
+            <p:dataTable id="idTabela" var="funcionario" value="#{mbFuncionario.funcionarios}"
+                         paginator="true" rows="10" emptyMessage="Nenhum registro encontrado"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}
+                         {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+
+                <f:facet name="header">Lista de Pessoas</f:facet>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{funcionario.nomeRazaoSocial}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email"/>
+                    </f:facet>
+                    <h:outputText value="#{funcionario.email}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Telefone"/>
+                    </f:facet>
+                    <h:outputText value="#{funcionario.telefone}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Cidade"/>
+                    </f:facet>
+                    <h:outputText value="#{funcionario.endereco.cidade.nome}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Ações"/>
+                    </f:facet>
+                    <p:commandButton action="#{mbFuncionario.editFuncionario}"
+                        value="Editar" image="ui-icon ui-icon-pencil"
+                        update="@form" ajax="false">
+                        <f:setPropertyActionListener value="#{funcionario}" target="#{mbFuncionario.funcionario}"/>
+                        <f:setPropertyActionListener value="#{funcionario.idPessoa}" target="#{mbFuncionario.funcionario.idPessoa}"/>
+                        <f:setPropertyActionListener value="#{funcionario.endereco}" target="#{mbFuncionario.endereco}"/>
+                        <f:setPropertyActionListener value="#{funcionario.endereco.estado.idEstado}" target="#{mbFuncionario.endereco.estado.idEstado}"/>                        
+                        <f:setPropertyActionListener value="#{funcionario.endereco.cidade.idCidade}" target="#{mbFuncionario.endereco.cidade.idCidade}"/>
+                        <f:setPropertyActionListener value="#{funcionario.endereco.tipoendereco.idTipoEndereco}" target="#{mbFuncionario.endereco.tipoendereco.idTipoEndereco}"/>
+                        <f:setPropertyActionListener value="#{funcionario.endereco.tipologradouro.idTipoLogradouro}" target="#{mbFuncionario.endereco.tipologradouro.idTipoLogradouro}"/>
+                    </p:commandButton>
+                    
+                    <p:commandButton value="Cancelar" action="#{mbFuncionario.limpFuncionario}"
+                                     image="ui-icon ui-icon-close" update="@form"/>
+
+                </p:column>
+
+            </p:dataTable>
+            
+            <h:panelGrid columns="2">  
+                <p:panel header="Exportar Todos os Dados">  
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/excel.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="xls" target="idTabela" fileName="funcionarios"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/pdf.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="pdf" target="idTabela" fileName="funcionarios"/>  
+                    </h:commandLink>                      
+                </p:panel>  
+
+                <p:panel header="Exportar os Dados Desta Página">  
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/excel.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="xls" target="idTabela" fileName="funcionarios" pageOnly="true"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="/resources/restrict/images/pdf.png" />  
+                        <p:dataExporter encoding="ISO-8859-1" type="pdf" target="idTabela" fileName="funcionarios" pageOnly="true"/>  
+                    </h:commandLink>                     
+                </p:panel>  
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
